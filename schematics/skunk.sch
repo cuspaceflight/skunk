@@ -1,4 +1,4 @@
-EESchema Schematic File Version 2  date 26/09/2012 21:33:07
+EESchema Schematic File Version 2  date 26/09/2012 21:43:37
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -44,8 +44,26 @@ Comment2 ""
 Comment3 ""
 Comment4 ""
 $EndDescr
+Wire Notes Line
+	1750 5950 1750 3200
+Wire Notes Line
+	1750 5950 7500 5950
+Wire Notes Line
+	7500 5950 7500 3200
+Wire Notes Line
+	7500 3200 1750 3200
 Wire Wire Line
-	3000 4150 3400 4150
+	9100 1850 8700 1850
+Wire Wire Line
+	8700 1850 8700 4050
+Wire Wire Line
+	6900 4250 6500 4250
+Wire Wire Line
+	9100 1450 5000 1450
+Wire Wire Line
+	5000 1450 5000 2700
+Wire Wire Line
+	5000 2700 1300 2700
 Wire Wire Line
 	2250 4150 2500 4150
 Connection ~ 1300 2700
@@ -58,27 +76,7 @@ Wire Wire Line
 Wire Wire Line
 	750  3000 750  4150
 Wire Wire Line
-	6400 3650 6400 2700
-Wire Wire Line
-	6400 3650 7700 3650
-Wire Wire Line
-	4650 3750 5200 3750
-Wire Wire Line
-	5200 3750 5200 4050
-Wire Wire Line
-	5200 4050 7700 4050
-Wire Wire Line
-	7700 3950 5950 3950
-Wire Wire Line
-	5950 3950 5950 4150
-Wire Wire Line
-	5950 4150 4650 4150
-Wire Wire Line
-	7700 3850 6600 3850
-Wire Wire Line
-	6600 3850 6600 2500
-Wire Wire Line
-	6600 2500 2450 2500
+	8700 4050 8150 4050
 Wire Wire Line
 	1250 3950 850  3950
 Connection ~ 1650 2500
@@ -108,20 +106,14 @@ Connection ~ 1300 2600
 Wire Wire Line
 	750  4150 1250 4150
 Wire Wire Line
-	2450 2500 2450 2450
+	2450 2450 2450 2500
 Wire Wire Line
-	3400 3650 3250 3650
+	6900 3950 6750 3950
 Wire Wire Line
-	3250 3650 3250 3850
+	6750 3950 6750 4150
 Wire Wire Line
-	3250 3850 3400 3850
+	6750 4150 6900 4150
 Connection ~ 1450 2600
-Wire Wire Line
-	1300 2600 6500 2600
-Wire Wire Line
-	6500 2600 6500 3550
-Wire Wire Line
-	6500 3550 7700 3550
 Wire Wire Line
 	850  3950 850  3100
 Wire Wire Line
@@ -129,28 +121,42 @@ Wire Wire Line
 Wire Wire Line
 	1650 3100 1650 2500
 Wire Wire Line
-	6400 2700 1300 2700
-Wire Wire Line
 	2500 3950 2250 3950
 Wire Wire Line
-	3400 3750 3150 3750
+	1300 2600 4900 2600
 Wire Wire Line
-	3150 3750 3150 3950
+	4900 2600 4900 1350
 Wire Wire Line
-	3150 3950 3000 3950
+	4900 1350 9100 1350
+Wire Wire Line
+	2450 2500 5100 2500
+Wire Wire Line
+	5100 2500 5100 1650
+Wire Wire Line
+	5100 1650 9100 1650
+Wire Wire Line
+	6500 4050 6900 4050
+Wire Wire Line
+	8150 4250 8800 4250
+Wire Wire Line
+	8800 4250 8800 1950
+Wire Wire Line
+	8800 1950 9100 1950
+Text Label 6500 4050 0    60   ~ 0
+RX
 Text Label 2500 4150 2    60   ~ 0
 0V
 Text Label 2500 3950 2    60   ~ 0
 +12V
-Text Label 7200 3650 0    60   ~ 0
+Text Label 8400 1450 0    60   ~ 0
 0V SENSE
-Text Label 7200 4050 0    60   ~ 0
+Text Label 8850 1850 0    60   ~ 0
 RX
-Text Label 7200 3850 0    60   ~ 0
+Text Label 8400 1650 0    60   ~ 0
 +24V
-Text Label 7200 3950 0    60   ~ 0
+Text Label 8850 1950 0    60   ~ 0
 TX
-Text Label 7200 3550 0    60   ~ 0
+Text Label 8400 1350 0    60   ~ 0
 0V
 Text Label 950  4150 0    60   ~ 0
 0V
@@ -159,32 +165,30 @@ Text Label 950  3950 0    60   ~ 0
 $Comp
 L DB9 J?
 U 1 1 506362ED
-P 8150 3750
-F 0 "J?" H 8150 4300 70  0000 C CNN
-F 1 "DB9_FLOWMETER" H 8150 3200 70  0000 C CNN
-	1    8150 3750
+P 9550 1550
+F 0 "J?" H 9550 2100 70  0000 C CNN
+F 1 "DB9_FLOWMETER" H 9550 1000 70  0000 C CNN
+	1    9550 1550
 	1    0    0    -1  
 $EndComp
-Text Label 3000 3950 0    60   ~ 0
-RX
-Text Label 3000 4150 0    60   ~ 0
+Text Label 6500 4250 0    60   ~ 0
 TX
 $Comp
 L DB9 J?
 U 1 1 50636112
-P 3850 3750
-F 0 "J?" H 3850 4300 70  0000 C CNN
-F 1 "DB9_ARD_BOX" H 3600 3150 70  0000 C CNN
-	1    3850 3750
+P 7350 4050
+F 0 "J?" H 7350 4600 70  0000 C CNN
+F 1 "DB9_ARD_BOX" H 7100 3450 70  0000 C CNN
+	1    7350 4050
 	1    0    0    -1  
 $EndComp
 $Comp
 L DB9 J?
 U 1 1 506360FD
-P 4200 3750
-F 0 "J?" H 4200 4300 70  0000 C CNN
-F 1 "DB9_ARD_BOX" H 3950 3150 70  0000 C CNN
-	1    4200 3750
+P 7700 4050
+F 0 "J?" H 7700 4600 70  0000 C CNN
+F 1 "DB9_ARD_BOX" H 7450 3450 70  0000 C CNN
+	1    7700 4050
 	-1   0    0    -1  
 $EndComp
 $Comp
