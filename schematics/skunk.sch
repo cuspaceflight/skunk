@@ -1,4 +1,4 @@
-EESchema Schematic File Version 2  date Fri 05 Oct 2012 19:54:39 BST
+EESchema Schematic File Version 2  date Fri 05 Oct 2012 20:15:41 BST
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -874,31 +874,25 @@ Wire Wire Line
 Wire Wire Line
 	4350 4400 6350 4400
 Wire Wire Line
-	5800 4500 6350 4500
-Wire Wire Line
 	4850 4600 6350 4600
 Wire Wire Line
-	5550 4800 6350 4800
+	5350 4800 6350 4800
 Wire Wire Line
-	5550 4900 6350 4900
+	5450 4900 6350 4900
 Wire Wire Line
-	5350 5000 6350 5000
+	7250 4400 8150 4400
 Wire Wire Line
-	7250 4300 8000 4300
+	7250 4500 8100 4500
 Wire Wire Line
-	7250 4400 7900 4400
+	7250 4600 8050 4600
 Wire Wire Line
-	7250 4500 7850 4500
+	7250 4700 8000 4700
 Wire Wire Line
-	7250 4600 7800 4600
+	7250 4800 8400 4800
 Wire Wire Line
-	7250 4700 7750 4700
+	7250 4900 8600 4900
 Wire Wire Line
-	7250 4800 8150 4800
-Wire Wire Line
-	7250 4900 8350 4900
-Wire Wire Line
-	7250 5000 8550 5000
+	7250 5000 8800 5000
 Text Label 5550 4600 0    60   ~ 0
 UART1 RX
 Text Label 5550 4700 0    60   ~ 0
@@ -926,60 +920,38 @@ C2
 Text Label 7500 5000 0    60   ~ 0
 C3
 Wire Wire Line
-	5800 4500 5800 3950
-Wire Wire Line
-	5800 3950 8100 3950
-Wire Wire Line
-	7750 4700 7750 5250
-Wire Wire Line
-	7800 4600 7800 5250
-Wire Wire Line
-	7850 4500 7850 5250
-Wire Wire Line
-	7900 4400 7900 5250
-Wire Wire Line
-	8150 4800 8150 4700
+	8400 4800 8400 4650
 $Comp
 L R R?
 U 1 1 506F6F28
-P 8150 4450
-F 0 "R?" V 8230 4450 50  0000 C CNN
-F 1 "10k" V 8150 4450 50  0000 C CNN
-	1    8150 4450
+P 8400 4400
+F 0 "R?" V 8480 4400 50  0000 C CNN
+F 1 "10k" V 8400 4400 50  0000 C CNN
+	1    8400 4400
 	1    0    0    -1  
 $EndComp
 $Comp
 L R R?
 U 1 1 506F6F37
-P 8350 4450
-F 0 "R?" V 8430 4450 50  0000 C CNN
-F 1 "10k" V 8350 4450 50  0000 C CNN
-	1    8350 4450
+P 8600 4400
+F 0 "R?" V 8680 4400 50  0000 C CNN
+F 1 "10k" V 8600 4400 50  0000 C CNN
+	1    8600 4400
 	1    0    0    -1  
 $EndComp
 $Comp
 L R R?
 U 1 1 506F6F46
-P 8550 4450
-F 0 "R?" V 8630 4450 50  0000 C CNN
-F 1 "10k" V 8550 4450 50  0000 C CNN
-	1    8550 4450
+P 8800 4400
+F 0 "R?" V 8880 4400 50  0000 C CNN
+F 1 "10k" V 8800 4400 50  0000 C CNN
+	1    8800 4400
 	1    0    0    -1  
 $EndComp
-Connection ~ 8150 4200
-Connection ~ 8350 4200
 Wire Wire Line
-	8350 4900 8350 4700
+	8600 4900 8600 4650
 Wire Wire Line
-	8550 5000 8550 4700
-Wire Wire Line
-	8000 4300 8000 3800
-Wire Wire Line
-	8100 3950 8100 4200
-Wire Wire Line
-	8100 4200 8550 4200
-Wire Wire Line
-	5350 4400 5350 5000
+	8800 5000 8800 4650
 Text Label 13100 8400 0    60   ~ 0
 SPK
 Wire Wire Line
@@ -1023,7 +995,6 @@ Wire Wire Line
 	3400 3200 4350 3200
 Wire Wire Line
 	4350 3200 4350 4400
-Connection ~ 5350 4400
 Text Label 6300 8250 0    60   ~ 0
 +5V
 Text Label 6300 8350 0    60   ~ 0
@@ -1070,12 +1041,192 @@ F 1 "ARDUINO CONNS" V 6950 4700 60  0000 C CNN
 	1    6900 4700
 	-1   0    0    -1  
 $EndComp
-Wire Wire Line
-	7250 5100 8550 5100
-Wire Wire Line
-	8550 5100 8550 5350
 Text Label 7300 5100 0    60   ~ 0
 30
 Text Label 7500 5100 0    60   ~ 0
 SPK
+Wire Wire Line
+	5450 4900 5450 6300
+Wire Wire Line
+	6350 5000 5150 5000
+Wire Wire Line
+	5150 5000 5150 4400
+Connection ~ 5150 4400
+Wire Wire Line
+	6000 4150 9050 4150
+Connection ~ 8600 4150
+Connection ~ 8400 4150
+Wire Wire Line
+	7250 5100 7700 5100
+Wire Wire Line
+	7700 5100 7700 6500
+Wire Wire Line
+	7800 5000 7800 6600
+Connection ~ 7800 5000
+Wire Wire Line
+	7850 4900 7850 6900
+Connection ~ 7850 4900
+Wire Wire Line
+	7900 4800 7900 6750
+Connection ~ 7900 4800
+Wire Wire Line
+	8000 4700 8000 6700
+Wire Wire Line
+	8050 4600 8050 6800
+Wire Wire Line
+	8150 4400 8150 6650
+Wire Wire Line
+	7250 4300 8250 4300
+Wire Wire Line
+	8250 4300 8250 5950
+Wire Wire Line
+	3050 4500 6350 4500
+Wire Wire Line
+	6000 4500 6000 4150
+Wire Wire Line
+	5350 4800 5350 6400
+$Comp
+L CONN_14 P?
+U 1 1 506FE3B5
+P 5450 7450
+F 0 "P?" V 5420 7450 60  0000 C CNN
+F 1 "CONN_ARD_PERIPHS" V 5530 7450 60  0000 C CNN
+	1    5450 7450
+	0    -1   1    0   
+$EndComp
+Wire Wire Line
+	4800 5950 4800 7100
+Wire Wire Line
+	5250 4500 5250 6100
+Wire Wire Line
+	5250 6100 4900 6100
+Wire Wire Line
+	4900 6100 4900 7100
+Connection ~ 6000 4500
+Wire Wire Line
+	5000 7100 5000 6300
+Wire Wire Line
+	5000 6300 5450 6300
+Wire Wire Line
+	5400 7100 5400 6400
+Wire Wire Line
+	5400 6400 5350 6400
+Wire Wire Line
+	5100 7100 5100 5100
+Wire Wire Line
+	5100 5100 5050 5100
+Wire Wire Line
+	5050 5100 5050 4300
+Connection ~ 5050 4300
+Wire Wire Line
+	7700 6500 5200 6500
+Wire Wire Line
+	5200 6500 5200 7100
+$Comp
+L 7805 U?
+U 1 1 506FEDD2
+P 3550 5600
+F 0 "U?" H 3700 5404 60  0000 C CNN
+F 1 "7803" H 3550 5800 60  0000 C CNN
+	1    3550 5600
+	1    0    0    -1  
+$EndComp
+$Comp
+L C C?
+U 1 1 506FEDF0
+P 3050 5750
+F 0 "C?" H 3100 5850 50  0000 L CNN
+F 1 "C" H 3100 5650 50  0000 L CNN
+	1    3050 5750
+	1    0    0    -1  
+$EndComp
+$Comp
+L C C?
+U 1 1 506FEDFF
+P 4050 5750
+F 0 "C?" H 4100 5850 50  0000 L CNN
+F 1 "C" H 4100 5650 50  0000 L CNN
+	1    4050 5750
+	1    0    0    -1  
+$EndComp
+$Comp
+L CP1 C?
+U 1 1 506FEE0E
+P 4350 5750
+F 0 "C?" H 4400 5850 50  0000 L CNN
+F 1 "CP1" H 4400 5650 50  0000 L CNN
+	1    4350 5750
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3050 5950 4350 5950
+Connection ~ 4050 5950
+Wire Wire Line
+	3050 5550 3150 5550
+Wire Wire Line
+	3950 5550 4650 5550
+Connection ~ 4050 5550
+Wire Wire Line
+	3050 5550 3050 4500
+Connection ~ 5250 4500
+Wire Wire Line
+	5300 7100 5300 6600
+Wire Wire Line
+	5300 6600 4650 6600
+Wire Wire Line
+	4650 6600 4650 5550
+Connection ~ 4350 5550
+Wire Wire Line
+	7800 6600 5500 6600
+Wire Wire Line
+	5500 6600 5500 7100
+Wire Wire Line
+	5600 7100 5600 6650
+Wire Wire Line
+	5600 6650 8150 6650
+Wire Wire Line
+	5700 7100 5700 6700
+Wire Wire Line
+	5700 6700 8000 6700
+Wire Wire Line
+	5800 7100 5800 6750
+Wire Wire Line
+	5800 6750 7900 6750
+Wire Wire Line
+	5900 7100 5900 6800
+Wire Wire Line
+	5900 6800 8050 6800
+Wire Wire Line
+	6000 7100 6000 6850
+Wire Wire Line
+	6000 6850 8100 6850
+Wire Wire Line
+	8100 6850 8100 4500
+Wire Wire Line
+	6100 7100 6100 6900
+Wire Wire Line
+	6100 6900 7850 6900
+Wire Wire Line
+	8250 5950 4800 5950
+$Comp
+L R R?
+U 1 1 5070099C
+P 8500 5950
+F 0 "R?" V 8580 5950 50  0000 C CNN
+F 1 "10k" V 8500 5950 50  0000 C CNN
+	1    8500 5950
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	9050 4150 9050 5950
+Wire Wire Line
+	9050 5950 8750 5950
+Connection ~ 8800 4150
+Text Label 6750 4150 0    60   ~ 0
++5V
+Text Label 8850 5950 0    60   ~ 0
++5V
+Wire Wire Line
+	3550 5850 3550 5950
+Connection ~ 3550 5950
 $EndSCHEMATC
