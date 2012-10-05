@@ -1,4 +1,4 @@
-EESchema Schematic File Version 2  date Fri 05 Oct 2012 15:36:33 BST
+EESchema Schematic File Version 2  date Fri 05 Oct 2012 15:40:29 BST
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -35,10 +35,10 @@ EELAYER END
 $Descr A3 16535 11693
 encoding utf-8
 Sheet 1 1
-Title ""
+Title "SKUNK WIRING HARNESS AND SCHEMATIC"
 Date "5 oct 2012"
 Rev ""
-Comp ""
+Comp "CAMBRIDGE UNIVERSITY SPACE FLIGHT - dwt27"
 Comment1 ""
 Comment2 ""
 Comment3 ""
@@ -833,4 +833,10 @@ Connection ~ 1650 2250
 Text Notes 1350 2650 0    60   ~ 0
 IDIOT\nDIODE
 Connection ~ 5300 750 
+Text Notes 14700 1900 0    60   ~ 0
+FLOWMETER CONNECTION
+Text Notes 7450 7950 0    60   ~ 0
+PERIPHERAL CONNECTION CABLE
+Text Notes 11150 7900 0    60   ~ 0
+PERIPHERALS
 $EndSCHEMATC
