@@ -1,4 +1,4 @@
-EESchema Schematic File Version 2  date Fri 05 Oct 2012 19:49:31 BST
+EESchema Schematic File Version 2  date Fri 05 Oct 2012 19:54:39 BST
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -837,15 +837,6 @@ Wire Wire Line
 	1600 2250 2050 2250
 Connection ~ 1650 2250
 Connection ~ 5300 750 
-$Comp
-L DIL16 P?
-U 1 1 506F3C59
-P 6700 4650
-F 0 "P?" H 6700 5100 60  0000 C CNN
-F 1 "ARDUINO CONNS" V 6700 4650 50  0000 C CNN
-	1    6700 4650
-	1    0    0    -1  
-$EndComp
 Text Label 6100 4300 0    60   ~ 0
 GND
 Text Label 6100 4400 0    60   ~ 0
@@ -862,21 +853,21 @@ Text Label 6100 4900 0    60   ~ 0
 A0
 Text Label 6100 5000 0    60   ~ 0
 A1
-Text Label 7100 4300 0    60   ~ 0
+Text Label 7300 4300 0    60   ~ 0
 5
-Text Label 7100 4400 0    60   ~ 0
+Text Label 7300 4400 0    60   ~ 0
 37
-Text Label 7100 4500 0    60   ~ 0
+Text Label 7300 4500 0    60   ~ 0
 36
-Text Label 7100 4600 0    60   ~ 0
+Text Label 7300 4600 0    60   ~ 0
 35
-Text Label 7100 4700 0    60   ~ 0
+Text Label 7300 4700 0    60   ~ 0
 34
-Text Label 7100 4800 0    60   ~ 0
+Text Label 7300 4800 0    60   ~ 0
 33
-Text Label 7100 4900 0    60   ~ 0
+Text Label 7300 4900 0    60   ~ 0
 32
-Text Label 7100 5000 0    60   ~ 0
+Text Label 7300 5000 0    60   ~ 0
 31
 Wire Wire Line
 	4250 4300 6350 4300
@@ -893,21 +884,21 @@ Wire Wire Line
 Wire Wire Line
 	5350 5000 6350 5000
 Wire Wire Line
-	7050 4300 7800 4300
+	7250 4300 8000 4300
 Wire Wire Line
-	7050 4400 7700 4400
+	7250 4400 7900 4400
 Wire Wire Line
-	7050 4500 7650 4500
+	7250 4500 7850 4500
 Wire Wire Line
-	7050 4600 7600 4600
+	7250 4600 7800 4600
 Wire Wire Line
-	7050 4700 7550 4700
+	7250 4700 7750 4700
 Wire Wire Line
-	7050 4800 7950 4800
+	7250 4800 8150 4800
 Wire Wire Line
-	7050 4900 8150 4900
+	7250 4900 8350 4900
 Wire Wire Line
-	7050 5000 8350 5000
+	7250 5000 8550 5000
 Text Label 5550 4600 0    60   ~ 0
 UART1 RX
 Text Label 5550 4700 0    60   ~ 0
@@ -918,48 +909,39 @@ Text Label 5550 4900 0    60   ~ 0
 FLOWPOT
 Text Label 5550 5000 0    60   ~ 0
 BATT_IN
-Text Label 7300 4300 0    60   ~ 0
+Text Label 7500 4300 0    60   ~ 0
 KEYSW_IN
-Text Label 7300 4400 0    60   ~ 0
+Text Label 7500 4400 0    60   ~ 0
 R1
-Text Label 7300 4500 0    60   ~ 0
+Text Label 7500 4500 0    60   ~ 0
 R2
-Text Label 7300 4600 0    60   ~ 0
+Text Label 7500 4600 0    60   ~ 0
 R3
-Text Label 7300 4700 0    60   ~ 0
+Text Label 7500 4700 0    60   ~ 0
 R4
-Text Label 7300 4800 0    60   ~ 0
+Text Label 7500 4800 0    60   ~ 0
 C1
-Text Label 7300 4900 0    60   ~ 0
+Text Label 7500 4900 0    60   ~ 0
 C2
-Text Label 7300 5000 0    60   ~ 0
+Text Label 7500 5000 0    60   ~ 0
 C3
 Wire Wire Line
 	5800 4500 5800 3950
 Wire Wire Line
-	5800 3950 7900 3950
+	5800 3950 8100 3950
 Wire Wire Line
-	7550 4700 7550 5250
+	7750 4700 7750 5250
 Wire Wire Line
-	7600 4600 7600 5250
+	7800 4600 7800 5250
 Wire Wire Line
-	7650 4500 7650 5250
+	7850 4500 7850 5250
 Wire Wire Line
-	7700 4400 7700 5250
+	7900 4400 7900 5250
 Wire Wire Line
-	7950 4800 7950 4700
+	8150 4800 8150 4700
 $Comp
 L R R?
 U 1 1 506F6F28
-P 7950 4450
-F 0 "R?" V 8030 4450 50  0000 C CNN
-F 1 "10k" V 7950 4450 50  0000 C CNN
-	1    7950 4450
-	1    0    0    -1  
-$EndComp
-$Comp
-L R R?
-U 1 1 506F6F37
 P 8150 4450
 F 0 "R?" V 8230 4450 50  0000 C CNN
 F 1 "10k" V 8150 4450 50  0000 C CNN
@@ -968,25 +950,34 @@ F 1 "10k" V 8150 4450 50  0000 C CNN
 $EndComp
 $Comp
 L R R?
-U 1 1 506F6F46
+U 1 1 506F6F37
 P 8350 4450
 F 0 "R?" V 8430 4450 50  0000 C CNN
 F 1 "10k" V 8350 4450 50  0000 C CNN
 	1    8350 4450
 	1    0    0    -1  
 $EndComp
-Connection ~ 7950 4200
+$Comp
+L R R?
+U 1 1 506F6F46
+P 8550 4450
+F 0 "R?" V 8630 4450 50  0000 C CNN
+F 1 "10k" V 8550 4450 50  0000 C CNN
+	1    8550 4450
+	1    0    0    -1  
+$EndComp
 Connection ~ 8150 4200
+Connection ~ 8350 4200
 Wire Wire Line
-	8150 4900 8150 4700
+	8350 4900 8350 4700
 Wire Wire Line
-	8350 5000 8350 4700
+	8550 5000 8550 4700
 Wire Wire Line
-	7800 4300 7800 3800
+	8000 4300 8000 3800
 Wire Wire Line
-	7900 3950 7900 4200
+	8100 3950 8100 4200
 Wire Wire Line
-	7900 4200 8350 4200
+	8100 4200 8550 4200
 Wire Wire Line
 	5350 4400 5350 5000
 Text Label 13100 8400 0    60   ~ 0
@@ -1061,4 +1052,30 @@ Text Label 6300 9950 0    60   ~ 0
 R4
 Text Label 6300 10350 0    60   ~ 0
 KEYSW
+$Comp
+L CONN_8 P?
+U 1 1 506FB0F8
+P 6700 4650
+F 0 "P?" V 6650 4650 60  0000 C CNN
+F 1 "ARDUINO CONNS" V 6750 4650 60  0000 C CNN
+	1    6700 4650
+	1    0    0    -1  
+$EndComp
+$Comp
+L CONN_9 P?
+U 1 1 506FB107
+P 6900 4700
+F 0 "P?" V 6850 4700 60  0000 C CNN
+F 1 "ARDUINO CONNS" V 6950 4700 60  0000 C CNN
+	1    6900 4700
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	7250 5100 8550 5100
+Wire Wire Line
+	8550 5100 8550 5350
+Text Label 7300 5100 0    60   ~ 0
+30
+Text Label 7500 5100 0    60   ~ 0
+SPK
 $EndSCHEMATC
