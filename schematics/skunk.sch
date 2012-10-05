@@ -1,4 +1,4 @@
-EESchema Schematic File Version 2  date Fri 05 Oct 2012 19:19:31 BST
+EESchema Schematic File Version 2  date Fri 05 Oct 2012 19:28:29 BST
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -844,7 +844,7 @@ L DIL16 P?
 U 1 1 506F3C59
 P 6700 4650
 F 0 "P?" H 6700 5100 60  0000 C CNN
-F 1 "DIL16" V 6700 4650 50  0000 C CNN
+F 1 "ARDUINO CONNS" V 6700 4650 50  0000 C CNN
 	1    6700 4650
 	1    0    0    -1  
 $EndComp
@@ -933,9 +933,9 @@ R3
 Text Label 7300 4700 0    60   ~ 0
 R4
 Text Label 7300 4800 0    60   ~ 0
-R5
+C1
 Text Label 7300 4900 0    60   ~ 0
-R6
+C2
 Text Label 7300 5000 0    60   ~ 0
-R7
+C3
 $EndSCHEMATC
