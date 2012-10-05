@@ -1,4 +1,4 @@
-EESchema Schematic File Version 2  date Fri 05 Oct 2012 15:41:18 BST
+EESchema Schematic File Version 2  date Fri 05 Oct 2012 19:19:31 BST
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -383,6 +383,85 @@ F 1 "FUSE 2A" H 1300 2100 40  0000 C CNN
 	1    1350 2250
 	1    0    0    -1  
 $EndComp
+$Comp
+L FUSE F?
+U 1 1 506F151A
+P 3800 750
+F 0 "F?" H 3900 800 40  0000 C CNN
+F 1 "FUSE 1A" H 3750 600 40  0000 C CNN
+	1    3800 750 
+	1    0    0    -1  
+$EndComp
+Text Label 3250 750  0    60   ~ 0
++16V
+Text Label 3300 1700 0    60   ~ 0
+0V
+$Comp
+L C C?
+U 1 1 506F1B91
+P 4150 1150
+F 0 "C?" H 4200 1250 50  0000 L CNN
+F 1 "100nF" H 4200 1050 50  0000 L CNN
+	1    4150 1150
+	1    0    0    -1  
+$EndComp
+$Comp
+L ZENER D?
+U 1 1 506F1D24
+P 4600 950
+F 0 "D?" H 4600 1050 50  0000 C CNN
+F 1 "20V" H 4600 850 40  0000 C CNN
+	1    4600 950 
+	0    -1   -1   0   
+$EndComp
+$Comp
+L R R?
+U 1 1 506F1D33
+P 4600 1450
+F 0 "R?" V 4680 1450 50  0000 C CNN
+F 1 "1k" V 4600 1450 50  0000 C CNN
+	1    4600 1450
+	1    0    0    -1  
+$EndComp
+$Comp
+L C C?
+U 1 1 506F22D9
+P 4900 1450
+F 0 "C?" H 4950 1550 50  0000 L CNN
+F 1 "47nF" H 4950 1350 50  0000 L CNN
+	1    4900 1450
+	1    0    0    -1  
+$EndComp
+$Comp
+L THYRISTOR T?
+U 1 1 506F2A69
+P 5300 1100
+F 0 "T?" H 5200 1200 40  0000 C CNN
+F 1 "THYRISTOR" H 5300 1000 40  0000 C CNN
+	1    5300 1100
+	0    -1   1    0   
+$EndComp
+Text Notes 1150 1750 0    60   ~ 0
+POWER INPUT\n
+Text Notes 3700 1850 0    60   ~ 0
+OVERVOLTAGE CROWBAR
+$Comp
+L DIODE D?
+U 1 1 506F2E41
+P 1650 2450
+F 0 "D?" H 1650 2550 40  0000 C CNN
+F 1 "DIODE" H 1650 2350 40  0000 C CNN
+	1    1650 2450
+	0    -1   -1   0   
+$EndComp
+Text Notes 1350 2650 0    60   ~ 0
+IDIOT\nDIODE
+Text Notes 14700 1900 0    60   ~ 0
+FLOWMETER CONNECTION
+Text Notes 7450 7950 0    60   ~ 0
+PERIPHERAL CONNECTION CABLE
+Text Notes 11150 7900 0    60   ~ 0
+PERIPHERALS
 Wire Wire Line
 	9500 1250 15050 1250
 Connection ~ 9500 1250
@@ -391,7 +470,7 @@ Wire Wire Line
 Wire Wire Line
 	9500 1150 9200 1150
 Wire Wire Line
-	9200 750  9200 1150
+	9200 1150 9200 750 
 Wire Wire Line
 	9300 1050 15050 1050
 Wire Wire Line
@@ -723,51 +802,11 @@ Wire Wire Line
 Wire Wire Line
 	3000 750  3550 750 
 Wire Wire Line
-	4050 750  9200 750 
-$Comp
-L FUSE F?
-U 1 1 506F151A
-P 3800 750
-F 0 "F?" H 3900 800 40  0000 C CNN
-F 1 "FUSE 1A" H 3750 600 40  0000 C CNN
-	1    3800 750 
-	1    0    0    -1  
-$EndComp
-Text Label 3250 750  0    60   ~ 0
-+16V
-Text Label 3300 1700 0    60   ~ 0
-0V
-$Comp
-L C C?
-U 1 1 506F1B91
-P 4150 1150
-F 0 "C?" H 4200 1250 50  0000 L CNN
-F 1 "100nF" H 4200 1050 50  0000 L CNN
-	1    4150 1150
-	1    0    0    -1  
-$EndComp
+	9200 750  4050 750 
 Wire Wire Line
 	4150 1350 4150 1700
 Wire Wire Line
 	4150 750  4150 950 
-$Comp
-L ZENER D?
-U 1 1 506F1D24
-P 4600 950
-F 0 "D?" H 4600 1050 50  0000 C CNN
-F 1 "20V" H 4600 850 40  0000 C CNN
-	1    4600 950 
-	0    -1   -1   0   
-$EndComp
-$Comp
-L R R?
-U 1 1 506F1D33
-P 4600 1450
-F 0 "R?" V 4680 1450 50  0000 C CNN
-F 1 "1k" V 4600 1450 50  0000 C CNN
-	1    4600 1450
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	3100 1700 5300 1700
 Connection ~ 3100 1700
@@ -775,15 +814,6 @@ Connection ~ 4150 1700
 Wire Wire Line
 	4600 1150 4600 1200
 Connection ~ 4150 750 
-$Comp
-L C C?
-U 1 1 506F22D9
-P 4900 1450
-F 0 "C?" H 4950 1550 50  0000 L CNN
-F 1 "47nF" H 4950 1350 50  0000 L CNN
-	1    4900 1450
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	4900 1700 4900 1650
 Connection ~ 4600 1700
@@ -791,15 +821,6 @@ Wire Wire Line
 	4600 1200 5150 1200
 Wire Wire Line
 	4900 1200 4900 1250
-$Comp
-L THYRISTOR T?
-U 1 1 506F2A69
-P 5300 1100
-F 0 "T?" H 5200 1200 40  0000 C CNN
-F 1 "THYRISTOR" H 5300 1000 40  0000 C CNN
-	1    5300 1100
-	0    -1   1    0   
-$EndComp
 Connection ~ 4900 1200
 Wire Wire Line
 	5300 750  5300 900 
@@ -807,19 +828,6 @@ Connection ~ 4600 750
 Wire Wire Line
 	5300 1700 5300 1300
 Connection ~ 4900 1700
-Text Notes 1150 1750 0    60   ~ 0
-POWER INPUT\n
-Text Notes 3700 1850 0    60   ~ 0
-OVERVOLTAGE CROWBAR
-$Comp
-L DIODE D?
-U 1 1 506F2E41
-P 1650 2450
-F 0 "D?" H 1650 2550 40  0000 C CNN
-F 1 "DIODE" H 1650 2350 40  0000 C CNN
-	1    1650 2450
-	0    -1   -1   0   
-$EndComp
 Wire Wire Line
 	1050 2850 3200 2850
 Wire Wire Line
@@ -830,13 +838,104 @@ Connection ~ 1650 2750
 Wire Wire Line
 	1600 2250 2050 2250
 Connection ~ 1650 2250
-Text Notes 1350 2650 0    60   ~ 0
-IDIOT\nDIODE
 Connection ~ 5300 750 
-Text Notes 14700 1900 0    60   ~ 0
-FLOWMETER CONNECTION
-Text Notes 7450 7950 0    60   ~ 0
-PERIPHERAL CONNECTION CABLE
-Text Notes 11150 7900 0    60   ~ 0
-PERIPHERALS
+$Comp
+L DIL16 P?
+U 1 1 506F3C59
+P 6700 4650
+F 0 "P?" H 6700 5100 60  0000 C CNN
+F 1 "DIL16" V 6700 4650 50  0000 C CNN
+	1    6700 4650
+	1    0    0    -1  
+$EndComp
+Text Label 6100 4300 0    60   ~ 0
+GND
+Text Label 6100 4400 0    60   ~ 0
+Vin
+Text Label 6100 4500 0    60   ~ 0
++5V
+Text Label 6100 4600 0    60   ~ 0
+53
+Text Label 6100 4700 0    60   ~ 0
+9
+Text Label 6100 4800 0    60   ~ 0
+7
+Text Label 6100 4900 0    60   ~ 0
+A0
+Text Label 6100 5000 0    60   ~ 0
+A1
+Text Label 7100 4300 0    60   ~ 0
+5
+Text Label 7100 4400 0    60   ~ 0
+37
+Text Label 7100 4500 0    60   ~ 0
+36
+Text Label 7100 4600 0    60   ~ 0
+35
+Text Label 7100 4700 0    60   ~ 0
+34
+Text Label 7100 4800 0    60   ~ 0
+33
+Text Label 7100 4900 0    60   ~ 0
+32
+Text Label 7100 5000 0    60   ~ 0
+31
+Wire Wire Line
+	6100 4300 6350 4300
+Wire Wire Line
+	6350 4400 6100 4400
+Wire Wire Line
+	6100 4500 6350 4500
+Wire Wire Line
+	5550 4600 6350 4600
+Wire Wire Line
+	5550 4700 6350 4700
+Wire Wire Line
+	5550 4800 6350 4800
+Wire Wire Line
+	5550 4900 6350 4900
+Wire Wire Line
+	5550 5000 6350 5000
+Wire Wire Line
+	7050 4300 7300 4300
+Wire Wire Line
+	7050 4400 7300 4400
+Wire Wire Line
+	7050 4500 7300 4500
+Wire Wire Line
+	7050 4600 7300 4600
+Wire Wire Line
+	7050 4700 7300 4700
+Wire Wire Line
+	7050 4800 7300 4800
+Wire Wire Line
+	7050 4900 7300 4900
+Wire Wire Line
+	7050 5000 7300 5000
+Text Label 5550 4600 0    60   ~ 0
+UART1 RX
+Text Label 5550 4700 0    60   ~ 0
+UART1 TX
+Text Label 5550 4800 0    60   ~ 0
+UART2 TX
+Text Label 5550 4900 0    60   ~ 0
+POT_IN
+Text Label 5550 5000 0    60   ~ 0
+BATT_IN
+Text Label 7300 4300 0    60   ~ 0
+KEYSW_IN
+Text Label 7300 4400 0    60   ~ 0
+R1
+Text Label 7300 4500 0    60   ~ 0
+R2
+Text Label 7300 4600 0    60   ~ 0
+R3
+Text Label 7300 4700 0    60   ~ 0
+R4
+Text Label 7300 4800 0    60   ~ 0
+R5
+Text Label 7300 4900 0    60   ~ 0
+R6
+Text Label 7300 5000 0    60   ~ 0
+R7
 $EndSCHEMATC
