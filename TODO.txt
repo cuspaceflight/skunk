@@ -1,3 +1,2 @@
 Add gender labels to connectors
 Change DB25 to include cable (2 pairs of connectors)
-Setup values of 18V regulator
