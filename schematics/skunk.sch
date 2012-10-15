@@ -1,4 +1,4 @@
-EESchema Schematic File Version 2  date Mon 15 Oct 2012 14:20:48 BST
+EESchema Schematic File Version 2  date Mon 15 Oct 2012 14:43:06 BST
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -827,7 +827,7 @@ Text Label 6100 4800 0    60   ~ 0
 7
 Text Label 6100 4900 0    60   ~ 0
 A0
-Text Label 6100 5000 0    60   ~ 0
+Text Label 6200 5000 0    60   ~ 0
 A1
 Text Label 7300 4300 0    60   ~ 0
 5
@@ -877,7 +877,7 @@ Text Label 5550 4800 0    60   ~ 0
 LCD_DATA
 Text Label 5550 4900 0    60   ~ 0
 FLOWPOT
-Text Label 5550 5000 0    60   ~ 0
+Text Label 6000 5100 3    60   ~ 0
 BATT_IN
 Text Label 7500 4300 0    60   ~ 0
 KEYSW_IN
@@ -1024,9 +1024,7 @@ SPK
 Wire Wire Line
 	5450 4900 5450 6300
 Wire Wire Line
-	6350 5000 5150 5000
-Wire Wire Line
-	5150 5000 5150 4400
+	5150 4400 5150 5050
 Connection ~ 5150 4400
 Wire Wire Line
 	6000 4150 9050 4150
@@ -1088,11 +1086,7 @@ Wire Wire Line
 Wire Wire Line
 	5400 6400 5350 6400
 Wire Wire Line
-	5100 7100 5100 5100
-Wire Wire Line
-	5100 5100 5050 5100
-Wire Wire Line
-	5050 5100 5050 4300
+	5050 4300 5050 5200
 Connection ~ 5050 4300
 Wire Wire Line
 	7700 6500 5200 6500
@@ -1244,4 +1238,42 @@ Wire Wire Line
 	12200 8900 12250 8900
 Text Notes 11400 8850 0    60   ~ 0
 CLAMP RESISTOR
+$Comp
+L R R?
+U 1 1 507C11BB
+P 5750 5050
+F 0 "R?" V 5830 5050 50  0000 C CNN
+F 1 "3k3" V 5750 5050 50  0000 C CNN
+	1    5750 5050
+	0    -1   -1   0   
+$EndComp
+$Comp
+L R R?
+U 1 1 507C11CA
+P 6000 5650
+F 0 "R?" V 6080 5650 50  0000 C CNN
+F 1 "1k5" V 6000 5650 50  0000 C CNN
+	1    6000 5650
+	-1   0    0    1   
+$EndComp
+Connection ~ 5100 5900
+Wire Wire Line
+	5100 5900 6000 5900
+Connection ~ 6000 5050
+Text Notes 6050 5300 0    60   ~ 0
+BATT SCALING\n15V -> 4.7V
+Wire Wire Line
+	6000 5400 6000 5050
+Wire Wire Line
+	6000 5050 6100 5050
+Wire Wire Line
+	6100 5050 6100 5000
+Wire Wire Line
+	6100 5000 6350 5000
+Wire Wire Line
+	5150 5050 5500 5050
+Wire Wire Line
+	5050 5200 5100 5200
+Wire Wire Line
+	5100 5200 5100 7100
 $EndSCHEMATC
