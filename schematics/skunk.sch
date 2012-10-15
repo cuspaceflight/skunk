@@ -1,4 +1,4 @@
-EESchema Schematic File Version 2  date Fri 05 Oct 2012 20:15:41 BST
+EESchema Schematic File Version 2  date Mon 15 Oct 2012 14:20:48 BST
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -36,7 +36,7 @@ $Descr A3 16535 11693
 encoding utf-8
 Sheet 1 1
 Title "SKUNK WIRING HARNESS AND SCHEMATIC"
-Date "5 oct 2012"
+Date "15 oct 2012"
 Rev ""
 Comp "CAMBRIDGE UNIVERSITY SPACE FLIGHT - dwt27"
 Comment1 ""
@@ -52,23 +52,21 @@ Text Label 9550 1250 0    60   ~ 0
 +16V
 Text Label 13100 8600 0    60   ~ 0
 0V
-Text Label 11700 8950 0    60   ~ 0
+Text Label 11250 9000 0    60   ~ 0
 LCD_DATA
-Text Label 11700 9050 0    60   ~ 0
+Text Label 11250 9100 0    60   ~ 0
 3V3
-Text Label 11700 8850 0    60   ~ 0
-0V
 Text Label 10150 8250 0    60   ~ 0
 +5V
-Text Label 10950 8850 0    60   ~ 0
+Text Label 10900 8850 0    60   ~ 0
 0V
 $Comp
 L SPST SW?
 U 1 1 50638E78
-P 11100 10350
-F 0 "SW?" H 11100 10450 70  0000 C CNN
-F 1 "KEYSW" H 11100 10250 70  0000 C CNN
-	1    11100 10350
+P 10500 10350
+F 0 "SW?" H 10500 10450 70  0000 C CNN
+F 1 "KEYSW" H 10500 10250 70  0000 C CNN
+	1    10500 10350
 	1    0    0    -1  
 $EndComp
 Text Label 14600 10050 0    60   ~ 0
@@ -196,10 +194,10 @@ $EndComp
 $Comp
 L CONN_3 K?
 U 1 1 50637AB3
-P 12500 8950
-F 0 "K?" V 12450 8950 50  0000 C CNN
-F 1 "LCD" H 12500 8750 40  0000 C CNN
-	1    12500 8950
+P 12600 9000
+F 0 "K?" V 12550 9000 50  0000 C CNN
+F 1 "LCD" H 12600 8800 40  0000 C CNN
+	1    12600 9000
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -527,20 +525,11 @@ Wire Wire Line
 	12900 9000 12900 9550
 Wire Wire Line
 	12900 9550 9650 9550
-Connection ~ 11400 8850
 Wire Wire Line
-	13400 8600 11400 8600
-Wire Wire Line
-	11400 8600 11400 8850
-Wire Wire Line
-	12150 9050 10950 9050
-Wire Wire Line
-	10950 9050 10950 9850
+	11050 8600 13400 8600
 Wire Wire Line
 	10950 9850 9650 9850
 Connection ~ 10850 8850
-Wire Wire Line
-	11600 8850 11600 10350
 Wire Wire Line
 	9650 8250 10850 8250
 Wire Wire Line
@@ -635,16 +624,7 @@ Wire Wire Line
 Wire Wire Line
 	10850 8850 10850 8750
 Wire Wire Line
-	9650 10350 10600 10350
-Wire Wire Line
-	12150 8850 9650 8850
-Connection ~ 11600 8850
-Wire Wire Line
 	9650 9650 10850 9650
-Wire Wire Line
-	10850 9650 10850 8950
-Wire Wire Line
-	10850 8950 12150 8950
 Wire Wire Line
 	9650 8650 9900 8650
 Wire Wire Line
@@ -664,11 +644,7 @@ Wire Wire Line
 Wire Wire Line
 	10000 9150 10000 9350
 Wire Wire Line
-	10000 9350 12750 9350
-Wire Wire Line
-	12750 9350 12750 9100
-Wire Wire Line
-	12750 9100 15250 9100
+	10000 9350 12800 9350
 Wire Wire Line
 	9650 8750 10650 8750
 Wire Wire Line
@@ -958,7 +934,7 @@ Wire Wire Line
 	13050 8400 13400 8400
 Text Label 10250 8500 0    60   ~ 0
 FLOWPOT
-Text Label 9950 10350 0    60   ~ 0
+Text Label 9700 10350 0    60   ~ 0
 KEYSW
 Wire Wire Line
 	4850 4600 4850 2350
@@ -1229,4 +1205,43 @@ Text Label 8850 5950 0    60   ~ 0
 Wire Wire Line
 	3550 5850 3550 5950
 Connection ~ 3550 5950
+$Comp
+L R R?
+U 1 1 507C15C2
+P 11950 9000
+F 0 "R?" V 12030 9000 50  0000 C CNN
+F 1 "100k" V 11950 9000 50  0000 C CNN
+	1    11950 9000
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	9650 10350 10000 10350
+Wire Wire Line
+	11000 10350 11000 8850
+Connection ~ 11000 8850
+Wire Wire Line
+	11050 8850 11050 8600
+Connection ~ 11050 8850
+Wire Wire Line
+	15250 9100 12800 9100
+Wire Wire Line
+	12800 9100 12800 9350
+Wire Wire Line
+	10950 9850 10950 9100
+Wire Wire Line
+	10950 9100 12250 9100
+Wire Wire Line
+	12200 9000 12250 9000
+Wire Wire Line
+	10850 9650 10850 9000
+Wire Wire Line
+	10850 9000 11700 9000
+Wire Wire Line
+	9650 8850 12200 8850
+Wire Wire Line
+	12200 8850 12200 8900
+Wire Wire Line
+	12200 8900 12250 8900
+Text Notes 11400 8850 0    60   ~ 0
+CLAMP RESISTOR
 $EndSCHEMATC

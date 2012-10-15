@@ -1,5 +1,4 @@
 Add gender labels to connectors
 Add MAX232 circuitry on UART1
-Add clamp on LCD_DATA
 Add scaling on BATT voltage sense input
 Do 7803 part and C values
