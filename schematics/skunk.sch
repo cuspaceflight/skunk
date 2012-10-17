@@ -1,4 +1,4 @@
-EESchema Schematic File Version 2  date Wed 17 Oct 2012 16:23:31 BST
+EESchema Schematic File Version 2  date Wed 17 Oct 2012 16:28:30 BST
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -1388,13 +1388,13 @@ Wire Wire Line
 $Comp
 L LE33 U?
 U 1 1 507ECB85
-P 3550 5050
-F 0 "U?" H 3550 4950 50  0000 C CNN
-F 1 "LE33" H 3550 5150 50  0000 C CNN
-F 2 "MODULE" H 3550 5050 50  0001 C CNN
-F 3 "DOCUMENTATION" H 3550 5050 50  0001 C CNN
-	1    3550 5050
-	0    1    -1   0   
+P 3300 5200
+F 0 "U?" H 3150 5200 50  0000 C CNN
+F 1 "LE33" H 3100 5300 50  0000 C CNN
+F 2 "MODULE" H 3300 5200 50  0001 C CNN
+F 3 "DOCUMENTATION" H 3300 5200 50  0001 C CNN
+	1    3300 5200
+	-1   0    0    -1  
 $EndComp
 Connection ~ 4650 5800
 Wire Wire Line
@@ -1428,6 +1428,6 @@ Wire Wire Line
 Connection ~ 3050 5800
 Wire Wire Line
 	4200 5800 4200 5850
-Text Notes 3950 5000 0    60   ~ 0
+Text Notes 3850 5150 0    60   ~ 0
 3V3 LDO REG\nFOR LCD
 $EndSCHEMATC
