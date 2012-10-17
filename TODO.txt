@@ -1,2 +1,1 @@
-Do 7803 part and C values
 Check RS232 signal direction + connections rx/tx

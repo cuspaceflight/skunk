@@ -1,4 +1,4 @@
-EESchema Schematic File Version 2  date Wed 17 Oct 2012 15:43:32 BST
+EESchema Schematic File Version 2  date Wed 17 Oct 2012 16:23:31 BST
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -29,6 +29,7 @@ LIBS:opto
 LIBS:atmel
 LIBS:contrib
 LIBS:valves
+LIBS:LE33
 LIBS:skunk-cache
 EELAYER 27 0
 EELAYER END
@@ -614,39 +615,21 @@ F 1 "CONN_ARD_PERIPHS_M" V 5530 7450 60  0000 C CNN
 	0    -1   1    0   
 $EndComp
 $Comp
-L 7805 U?
-U 1 1 506FEDD2
-P 3550 5600
-F 0 "U?" H 3700 5404 60  0000 C CNN
-F 1 "7803" H 3550 5800 60  0000 C CNN
-	1    3550 5600
-	1    0    0    -1  
-$EndComp
-$Comp
 L C C?
 U 1 1 506FEDF0
-P 3050 5750
-F 0 "C?" H 3100 5850 50  0000 L CNN
-F 1 "C" H 3100 5650 50  0000 L CNN
-	1    3050 5750
-	1    0    0    -1  
-$EndComp
-$Comp
-L C C?
-U 1 1 506FEDFF
-P 4050 5750
-F 0 "C?" H 4100 5850 50  0000 L CNN
-F 1 "C" H 4100 5650 50  0000 L CNN
-	1    4050 5750
+P 3050 6050
+F 0 "C?" H 3100 6150 50  0000 L CNN
+F 1 "100nF" H 3100 5950 50  0000 L CNN
+	1    3050 6050
 	1    0    0    -1  
 $EndComp
 $Comp
 L CP1 C?
 U 1 1 506FEE0E
-P 4350 5750
-F 0 "C?" H 4400 5850 50  0000 L CNN
-F 1 "CP1" H 4400 5650 50  0000 L CNN
-	1    4350 5750
+P 4200 6050
+F 0 "C?" H 4250 6150 50  0000 L CNN
+F 1 "2.2uF" H 4250 5950 50  0000 L CNN
+	1    4200 6050
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -1100,7 +1083,7 @@ Wire Wire Line
 Connection ~ 1650 2250
 Connection ~ 5850 750 
 Wire Wire Line
-	4250 4300 6350 4300
+	2800 4300 6350 4300
 Wire Wire Line
 	4350 4400 6350 4400
 Wire Wire Line
@@ -1203,24 +1186,11 @@ Wire Wire Line
 	7700 6500 5200 6500
 Wire Wire Line
 	5200 6500 5200 7100
-Wire Wire Line
-	3050 5950 4350 5950
-Connection ~ 4050 5950
-Wire Wire Line
-	3050 5550 3150 5550
-Wire Wire Line
-	3950 5550 4650 5550
-Connection ~ 4050 5550
-Wire Wire Line
-	3050 5550 3050 4500
 Connection ~ 5250 4500
 Wire Wire Line
 	5300 7100 5300 6600
 Wire Wire Line
 	5300 6600 4650 6600
-Wire Wire Line
-	4650 6600 4650 5550
-Connection ~ 4350 5550
 Wire Wire Line
 	7800 6600 5500 6600
 Wire Wire Line
@@ -1258,9 +1228,6 @@ Wire Wire Line
 Wire Wire Line
 	9050 5950 8750 5950
 Connection ~ 8800 4150
-Wire Wire Line
-	3550 5850 3550 5950
-Connection ~ 3550 5950
 Wire Wire Line
 	9650 10350 10000 10350
 Wire Wire Line
@@ -1418,4 +1385,49 @@ Wire Wire Line
 Connection ~ 9900 3450
 Wire Wire Line
 	9900 2950 9750 2950
+$Comp
+L LE33 U?
+U 1 1 507ECB85
+P 3550 5050
+F 0 "U?" H 3550 4950 50  0000 C CNN
+F 1 "LE33" H 3550 5150 50  0000 C CNN
+F 2 "MODULE" H 3550 5050 50  0001 C CNN
+F 3 "DOCUMENTATION" H 3550 5050 50  0001 C CNN
+	1    3550 5050
+	0    1    -1   0   
+$EndComp
+Connection ~ 4650 5800
+Wire Wire Line
+	3650 5800 4650 5800
+Connection ~ 4200 5800
+Wire Wire Line
+	3550 5800 3550 6250
+Text Label 3150 5800 0    60   ~ 0
++5V
+Text Label 3850 5800 0    60   ~ 0
+3V3
+Text Label 3600 6250 0    60   ~ 0
+GND
+Wire Wire Line
+	4650 5800 4650 6600
+Wire Wire Line
+	2800 4300 2800 6250
+Connection ~ 4250 4300
+Text Label 3200 4300 0    60   ~ 0
+GND
+Text Label 3200 4500 0    60   ~ 0
++5V
+Connection ~ 3550 6250
+Connection ~ 3050 6250
+Wire Wire Line
+	3050 4500 3050 5850
+Wire Wire Line
+	3050 5800 3450 5800
+Wire Wire Line
+	2800 6250 4200 6250
+Connection ~ 3050 5800
+Wire Wire Line
+	4200 5800 4200 5850
+Text Notes 3950 5000 0    60   ~ 0
+3V3 LDO REG\nFOR LCD
 $EndSCHEMATC
