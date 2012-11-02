@@ -1,7 +1,4 @@
-/*
-	// Currently untested will be testing later this evening
-	
-	
+/*	
 	This version of this program is intended to simulate an arduino run for testing.
 	Written by Peter Carey (Whippopotamus), 1/11/2012
 	
