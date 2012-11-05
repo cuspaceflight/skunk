@@ -53,7 +53,6 @@
 
 #include <string>
 #include <sstream>
-#include <iomanip> // Not really necessary, just makes stuff look nicer..
 
 using namespace std;
 
