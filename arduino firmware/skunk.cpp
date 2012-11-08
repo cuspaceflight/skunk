@@ -56,6 +56,32 @@
 
 using namespace std;
 
+// ===================== Global variables ================================
+
+// Enum used for various states
+enum mode{MAIN_MENU,SETTINGS,FILL,FILL_ENTER,FILL_CONFIRM,FILL_PROGRESS,FILL_DONE,BACKLIGHT_ENTER,BACKLIGHT_DONE};
+mode state = MAIN_MENU; //Inital state is always the main menu
+
+int ki = -1; // KeypadInput value, set & reused later
+int targetAmount = 0;
+unsigned long long globalTimer = 0;
+float cp = 0;
+unsigned long long a = 0,b = 0;
+bool displayed = false;
+int backlightLevel = 30;
+
+#ifdef PC
+string target = "";
+#endif
+
+#ifdef ARDUINO
+serLCD lcd(2); // make an lcd object using the serLCD libraries on pin 2
+#endif
+// (Outside functions to ensure globally accessible, saves effort of passing around)
+
+
+
+// ======================= Function Definitions ==============================
 #ifdef PC
 void setup(); // Not needed for arduino
 void loop(); 
@@ -76,10 +102,13 @@ void stopFlow();
 void startFlow();
 float getAccumulation();
 
-void changeState(string s); // Change state, also resets a tiemr - done so that screens don't look for input unless they've been up long enough! (0.5 Seconds?)
+void changeState(enum mode newstate); // Change state, also resets a tiemr - done so that screens don't look for input unless they've been up long enough! (0.5 Seconds?)
 void display(string l1, string l2); // Display 2 lines on LCD (obviously needs more code than will have currently) (assumes 2 lines on LCD, maybe I can do 3??? - need to look at!!)
 int getKeypadInput(); // Looks for input from the keypad and returns an integer based on input, returns -1 on no input found
 void updateGlobalTimer(); // Updates the global timer, for the moment just adds 0.00001 to it, so time delay depends on how long you wait.
+
+
+// ============================ Function Declarations ============================
 
 #ifdef PC
 int main() { 
@@ -106,28 +135,6 @@ int main() {
 		-  Fill Progress (Display current out of total fill, check for keypad input (to cancel), respond to keypad input, update fill progress)
 */
 
-	// Make a enumerated state variable, so we can easily track the state whilst in the loop
-	// Mades code much more readable!
-	
-	enum mode{MAIN_MENU,SETTINGS,FILL,FILL_ENTER,FILL_CONFIRM,FILL_PROGRESS,FILL_DONE,BACKLIGHT_ENTER,BACKLIGHT_DONE};
-	mode state = MAIN_MENU; //Inital state is always the main menu
-	
-	int ki = -1; // KeypadInput value, set & reused later
-	int targetAmount = 0;
-	unsigned long long globalTimer = 0;
-	float cp = 0;
-	unsigned long long a = 0,b = 0;
-	bool displayed = false;
-	int backlightLevel = 30;
-	
-	#ifdef PC
-	string target = "";
-	#endif
-	
-	#ifdef ARDUINO
-	serLCD lcd(2); // make an lcd object using the serLCD libraries on pin 2
-	#endif
-	// (Outside functions to ensure globally accessible, saves effort of passing around)
 
 void setup() {
 	/*	Arduino pin setup goes here, not needed normally/breaks normal compile */
@@ -162,7 +169,7 @@ void loop() {
 			break;
 		case FILL_ENTER:
 			targetAmount = fillEnter(); // Set target amount to fillEnter value
-			changeState("FILL_CONFIRM"); // Then change state
+			changeState(FILL_CONFIRM); // Then change state
 			break;
 		case FILL_CONFIRM:
 			fillConfirm();
@@ -180,7 +187,7 @@ void loop() {
 			backlightDone();
 			break;
 		default:
-			changeState("MAIN_MENU"); // If for some reason state variable is unset (which should never ever happen) go back to MAIN_MENU!
+			changeState(MAIN_MENU); // If for some reason state variable is unset (which should never ever happen) go back to MAIN_MENU!
 			break;
 	}
 }
@@ -192,10 +199,10 @@ void mainMenu() {
 		if(ki != -1) {
 			switch(ki) {
 				case 1:
-					changeState("FILL");
+					changeState(FILL);
 					break;
 				case 2:
-					changeState("SETTINGS");
+					changeState(SETTINGS);
 					break;
 				default:
 					if(!displayed) {
@@ -227,10 +234,10 @@ void settings() {
 		if(ki != -1) {
 			switch(ki) {
 				case 1:
-					changeState("MAIN_MENU");
+					changeState(MAIN_MENU);
 					break;	
 				case 2:
-					changeState("BACKLIGHT_ENTER");
+					changeState(BACKLIGHT_ENTER);
 					break;
 				default:
 					if(!displayed) {
@@ -290,7 +297,7 @@ void backlightEnter() {
 	#ifdef ARDUINO
 	lcd.setBrightness(backlightLevel);
 	#endif
-	changeState("BACKLIGHT_DONE");
+	changeState(BACKLIGHT_DONE);
 }
 
 void backlightDone() {
@@ -302,7 +309,7 @@ void backlightDone() {
 	while(globalTimer < 5000) {
 		updateGlobalTimer();
 	}
-	changeState("MAIN_MENU");
+	changeState(MAIN_MENU);
 }
 
 void fill() {
@@ -312,10 +319,10 @@ void fill() {
 		if(ki != -1) {
 			switch(ki) {
 				case 1:
-					changeState("MAIN_MENU");
+					changeState(MAIN_MENU);
 					break;	
 				case 2:
-					changeState("FILL_ENTER");
+					changeState(FILL_ENTER);
 					break;
 				default:
 					if(!displayed) {
@@ -378,10 +385,10 @@ void fillConfirm() {
 		if(ki != -1) {
 			switch(ki) {
 				case 1:
-					changeState("MAIN_MENU");
+					changeState(MAIN_MENU);
 					break;	
 				case 2:
-					changeState("FILL_PROGRESS");
+					changeState(FILL_PROGRESS);
 					break;
 				default:
 					if(!displayed) {
@@ -436,7 +443,7 @@ void fillProgress(){
 			display(l1,target);		
 			#endif
 	}
-	changeState("FILL_DONE");
+	changeState(FILL_DONE);
 }
 
 void fillDone() {
@@ -448,22 +455,12 @@ void fillDone() {
 	while(globalTimer < 5000) {
 		updateGlobalTimer();
 	}
-	changeState("MAIN_MENU");
+	changeState(MAIN_MENU);
 }
 
-void changeState(string s) {
+void changeState(mode newstate){
 	// Isn't really a nice solution, but allows me to not include a map library for example - meaning a reduced binary size.
-	state = MAIN_MENU;
-	if ( s == "MAIN_MENU") { state = MAIN_MENU; }
-	if ( s == "SETTINGS") { state = SETTINGS; }
-	if ( s == "FILL") { state = FILL; }
-	if ( s == "FILL_ENTER") { state = FILL_ENTER; }
-	if ( s == "FILL_ENTER") { state = FILL_ENTER; }
-	if ( s == "FILL_CONFIRM") { state = FILL_CONFIRM; }
-	if ( s == "FILL_PROGRESS") { state = FILL_PROGRESS; }
-	if ( s == "FILL_DONE") { state = FILL_DONE; }
-	if ( s == "BACKLIGHT_ENTER") { state = BACKLIGHT_ENTER; }
-	if ( s == "BACKLIGHT_DONE") { state = BACKLIGHT_DONE; }
+	state = newstate;
 	globalTimer = 0; // Resets global timer on state change!
 	displayed = false; // Resets displayed variable
 }
