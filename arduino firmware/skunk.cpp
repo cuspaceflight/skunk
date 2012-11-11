@@ -1,17 +1,17 @@
 /*
-
-	Written by Peter Carey (Whippopotamus), 
-		
+	Note: Will fail if runs too long as a result of arduino timer resetting (approx 50 days)
+	Very unlikey! (The battery should only last a couple of hours...)
+	
 	- Updates 3/11/2012:
-		+ Followed some suggestions concerning defining arduino or pc at start of program, to allow certain parts to compile depending on situation - Many thanks to Adam and David.
+		+ Followed some suggestions concerning defining arduino or PC at start of program, to allow certain parts to compile depending on situation - Many thanks to Adam and David.
 		+ Added in serLCD libraries to same folder and interatctions in display function.
-		+ Shortened all strings to only output max 16 chars, and added double checking on display, and at other places
+		+ Shortened all strings to only output max 16 chars, and added double checkeypadInputng on display, and at other places
 		+ Some restructuring of various functions for display improvements (no redraws if not needed etc)
 		+ Backlight setting added
 		+ Arduino updateGlobalTimer now deals with the overflow of millis() with a minor pause, this could take 50 days to occur, and its unlikely that its gonna be left on that long, but better safe than sorry
 	
 	- Initial Code 1/11/2012
-		+ Wrote main body of code, handled states, etc, written for a simulation on a pc
+		+ Wrote main body of code, handled states, etc, written for a simulation on a PC
 	
 	------------------
 	Arduino code completion:
@@ -28,27 +28,26 @@
 	[ ] = not done, [/] = written but untested, [X] = done
 */
 
-// Alters whether to compile for an arduino or pc (simulation)
+// Alters whether to compile for an Arduino or a PC (simulation)
 #define PC
 //#define ARDUINO
-//#define LINUX // Used to choose cls (windows) or clear (linux) when running simulation
+//#define LINUX 
+// This is used to choose the system command cls (Windows) or clear (Linux/Bash) when running a simulation.
 
 #ifdef PC
 #ifdef ARDUINO
-#undef ARDUINO // Run PC sim if both arudino and pc defined
+#undef ARDUINO // If both PC and ARDUINO have been defined by accident, compile for PC.
 #endif
 #endif
 
 #ifdef PC
-#include <iostream> // Not needed for arduino, just used to simulate!
+#include <iostream> 
 #include <ctime>
-#include <stdlib.h> // For clear command
-// Wont be in arduino build - helps keep size down
-#endif
+#include <stdlib.h> 
+#endif // Various headers not needed by the Arduino, which would waste space.
 
 #ifdef ARDUINO
-#include <serLCD.h> // Includes the lcd libraries if needed
-#define MAX_UL 4294967295
+#include <serLCD.h> // These are the libraries for the LCD, providing various standard functions.
 #endif
 
 #include <string>
@@ -56,56 +55,51 @@
 
 using namespace std;
 
-// ===================== Global variables ================================
+//============================== Global variables ================================
 
 // Enum used for various states
 enum mode{MAIN_MENU,SETTINGS,FILL,FILL_ENTER,FILL_CONFIRM,FILL_PROGRESS,FILL_DONE,BACKLIGHT_ENTER,BACKLIGHT_DONE};
 mode state = MAIN_MENU; //Inital state is always the main menu
 
-int ki = -1; // KeypadInput value, set & reused later
-int targetAmount = 0;
-unsigned long long globalTimer = 0;
-float cp = 0;
-unsigned long long a = 0,b = 0;
-bool displayed = false;
-int backlightLevel = 30;
-
-#ifdef PC
-string target = "";
-#endif
+int keypadInput = -1; // KeypadInput value, set & reused later
+int targetAmount = 0; // Target fill amount
+float currentProgress = 0; // Current filling progress
+unsigned long long globalTimer = 0; // Global timer variable - gets reset so used for timing from 0 to 1 for example
+unsigned long long timerA = 0,timerB = 0; // Two time keeping variables - don't get reset, used to calculate time difference to update the global timer
+bool displayed = false; // Boolean for whether or not the message has been displayed once - stops unessecary redraws, etc.
+int backlightLevel = 30; // Variable for the backlight level of the LCD
 
 #ifdef ARDUINO
 serLCD lcd(2); // make an lcd object using the serLCD libraries on pin 2
 #endif
-// (Outside functions to ensure globally accessible, saves effort of passing around)
 
-
-
-// ======================= Function Definitions ==============================
+//============================ Function Definitions ==============================
 #ifdef PC
-void setup(); // Not needed for arduino
+void setup(); // Not needed for arduino, as these are just used in main function
 void loop(); 
 #endif
 
 //Various function prototypes 
-void mainMenu(); // Functions to simplify main menu loop
+void mainMenu(); 
 void settings();
-void fill();
+
+void fill();	//Filling functions
 int fillEnter();
 void fillConfirm();
 void fillProgress();
 void fillDone();
-void backlightEnter();
+
+void backlightEnter(); // Backlight controls
 void backlightDone();
 
-void stopFlow();
+void stopFlow(); // Controlling of flowmeter
 void startFlow();
 float getAccumulation();
 
-void changeState(enum mode newstate); // Change state, also resets a tiemr - done so that screens don't look for input unless they've been up long enough! (0.5 Seconds?)
+void changeState(enum mode newstate); // Change state, also resets the timer - done so that screens don't look for input unless they've been up long enough! (0.5 Seconds?)
 void display(string l1, string l2); // Display 2 lines on LCD (obviously needs more code than will have currently) (assumes 2 lines on LCD, maybe I can do 3??? - need to look at!!)
 int getKeypadInput(); // Looks for input from the keypad and returns an integer based on input, returns -1 on no input found
-void updateGlobalTimer(); // Updates the global timer, for the moment just adds 0.00001 to it, so time delay depends on how long you wait.
+void updateGlobalTimer(); // Updates the global timer
 
 
 // ============================ Function Declarations ============================
@@ -120,7 +114,7 @@ int main() {
 	while(true){ 
 		loop();
 	}
-	return 0; // Good practice but never runs of course...
+	return 0; // 'Good' practice but never runs of course...
 }
 #endif
 
@@ -134,7 +128,6 @@ int main() {
 		-  Fill Confirm (Display do you want to fill with xxxxx, check for keypad input, respond to keypad input)
 		-  Fill Progress (Display current out of total fill, check for keypad input (to cancel), respond to keypad input, update fill progress)
 */
-
 
 void setup() {
 	/*	Arduino pin setup goes here, not needed normally/breaks normal compile */
@@ -194,10 +187,10 @@ void loop() {
 
 void mainMenu() {
 	if(globalTimer > 500) { // If been on screen for more that 0.5 s
-		ki = -1;
-		ki = getKeypadInput();
-		if(ki != -1) {
-			switch(ki) {
+		keypadInput = -1;
+		keypadInput = getKeypadInput();
+		if(keypadInput != -1) {
+			switch(keypadInput) {
 				case 1:
 					changeState(FILL);
 					break;
@@ -223,16 +216,16 @@ void mainMenu() {
 			displayed = true;
 		}
 		updateGlobalTimer();
-		ki = -1;
+		keypadInput = -1;
 	}
 }
 
 void settings() {
 	if(globalTimer > 500) { // If been on screen for more that 0.5 s
-	ki = -1;
-	ki = getKeypadInput();
-		if(ki != -1) {
-			switch(ki) {
+	keypadInput = -1;
+	keypadInput = getKeypadInput();
+		if(keypadInput != -1) {
+			switch(keypadInput) {
 				case 1:
 					changeState(MAIN_MENU);
 					break;	
@@ -258,7 +251,7 @@ void settings() {
 			displayed = true;
 		}
 		updateGlobalTimer();
-		ki = -1; // Ensures it is set to -1 
+		keypadInput = -1; // Ensures it is set to -1 
 	}
 }
 
@@ -314,10 +307,10 @@ void backlightDone() {
 
 void fill() {
 	if(globalTimer > 500) { // If been on screen for more that 0.5 s
-		ki = -1;
-		ki = getKeypadInput();
-		if(ki != -1) {
-			switch(ki) {
+		keypadInput = -1;
+		keypadInput = getKeypadInput();
+		if(keypadInput != -1) {
+			switch(keypadInput) {
 				case 1:
 					changeState(MAIN_MENU);
 					break;	
@@ -339,7 +332,7 @@ void fill() {
 		}
 	} else {
 		updateGlobalTimer();
-		ki = -1; // Ensures it is set to -1 
+		keypadInput = -1; // Ensures it is set to -1 
 		if(!displayed) {
 			display("Fill:","1-Menu 2-Amount");
 			displayed = true;
@@ -380,10 +373,10 @@ void fillConfirm() {
 	string l1 = ss.str().substr(0,16);
 	display(l1, "1-Menu 2-Yes");
 	if(globalTimer > 500) { // If been on screen for more that 0.5 s
-	ki = -1;
-	ki = getKeypadInput();
-		if(ki != -1) {
-			switch(ki) {
+	keypadInput = -1;
+	keypadInput = getKeypadInput();
+		if(keypadInput != -1) {
+			switch(keypadInput) {
 				case 1:
 					changeState(MAIN_MENU);
 					break;	
@@ -405,7 +398,7 @@ void fillConfirm() {
 		}
 	} else {
 		updateGlobalTimer();
-		ki = -1; // Ensures it is set to -1 
+		keypadInput = -1; // Ensures it is set to -1 
 		if(!displayed) {
 			display(l1, "1-Menu 2-Yes");
 			displayed = true;
@@ -415,6 +408,7 @@ void fillConfirm() {
 }
 
 void fillProgress(){	
+	string target = "";
 	if(!displayed) {
 		stringstream sa;
 		sa << "Target " << targetAmount;
@@ -426,15 +420,15 @@ void fillProgress(){
 	}
 	startFlow();
 	string l1,l2;
-	while(cp < targetAmount) {
+	while(currentProgress < targetAmount) {
 			#ifdef PC
-			cp += 10;
+			currentProgress += 10;
 			#endif
 			#ifdef ARDUINO
-			cp = getAccumulation();
+			currentProgress = getAccumulation();
 			#endif
 			stringstream ss;
-			ss << "Progress " << cp;
+			ss << "Progress " << currentProgress;
 			l1 = ss.str().substr(0,16);
 			ss.str("");
 			#ifdef ARDUINO
@@ -449,7 +443,7 @@ void fillProgress(){
 void fillDone() {
 	//Display complete message for 5 seconds, then go back to main menu
 	stringstream ss;
-	ss << "Filled " << cp;
+	ss << "Filled " << currentProgress;
 	display(ss.str().substr(0,16),"Have a nice day!");
 	globalTimer = 0;
 	while(globalTimer < 5000) {
@@ -459,17 +453,39 @@ void fillDone() {
 }
 
 void changeState(mode newstate){
-	// Isn't really a nice solution, but allows me to not include a map library for example - meaning a reduced binary size.
 	state = newstate;
-	globalTimer = 0; // Resets global timer on state change!
+	globalTimer = 0; // Resets global timer on state change
 	displayed = false; // Resets displayed variable
+}
+
+void updateGlobalTimer(){ // Return difference between current time and last time
+	#ifdef PC
+	if(timerA >= timerB) {
+		// so timerA is more recent time
+		timerB = (clock()/CLOCKS_PER_SEC)*1000;// So in milliseconds, like arduino
+		globalTimer += (timerB - timerA);
+	} else {
+		timerA = (clock()/CLOCKS_PER_SEC)*1000; 
+		globalTimer += (timerA - timerB);
+	}	
+	#endif
+	#ifdef ARDUINO
+	if(timerA >= timerB) {
+		// so timerA is more recent time
+		btimerB = millis();
+		globalTimer += (timerB - timerA);
+	} else {
+		timerA = millis();
+		globalTimer += (timerA - timerB);
+	}
+	#endif
 }
 
 void display(string l1, string l2){
 	#ifdef LINUX
 	system("clear");
 	#else
-	system("cls"); //  cls for windows, clear linux/bash
+	system("cls"); //  cls for windows, clear linux/bash, define is at top of file
 	#endif
 
 	#ifdef PC
@@ -479,8 +495,8 @@ void display(string l1, string l2){
 	#endif
 	
 	#ifdef ARDUINO
-	// Arduino version:
 	// Needs to double check length of strings passed, so not too long
+	// Prints out using serLCD libraries
 	if(l1 != "") {
 		lcd.clearLine(1);
 		lcd.print(l1.substr(0,16));
@@ -490,13 +506,12 @@ void display(string l1, string l2){
 		lcd.print(l2.substr(0,16)); // Means if "" is passed, doesn't redraw line
 		
 	}
-	lcd.selectLine(1);
+	lcd.selectLine(1); 
 	#endif
 }
 
 int getKeypadInput() {
-	// Standard version, need different for arduino of course
-	// WHEN USING HERE, SIMPLY TYPE ONE NUMBER AT A TIME, > 9 = enter equivalent
+	// When running sim, type one number at a time from 0 - 9, > 9 = enter equivalent, that is, returns 10
 	#ifdef PC
 	int value = 0;
 	cin >> value;
@@ -509,55 +524,11 @@ int getKeypadInput() {
 	// Arduino version:
 	#ifdef ARDUINO
 	
+	// Not implemented yet - needs some lab time to do
+	
 	#endif	
 }
 
-void updateGlobalTimer(){ // Return difference between current time and last time
-	#ifdef PC
-	if(a >= b) {
-		// so a is more recent time
-		b = (clock()/CLOCKS_PER_SEC)*1000;// So in milliseconds, like arduino
-		globalTimer += (b - a);
-	} else {
-		a = (clock()/CLOCKS_PER_SEC)*1000; 
-		globalTimer += (a - b);
-	}	
-	#endif
-	#ifdef ARDUINO
-	// Unsigned long max value = 4,294,967,295, 
-	c = millis();
-	if(c < a && c < b) { // So has overflowed
-		if(a >=  b) {
-			int at = 0;
-			while(at < 0) { // Waits to fix overflow, might cause a very minor timing discrepancy - not a problem
-				c = millis();
-				at = c - (UL_MAX - a); // Waits until has room to loop a round to a value below c, and keep a as unsigned long 
-			}
-			a = at;
-			b = c;
-			globalTimer += b-a;
-		}
-		if(a <  b) {
-			int bt = 0;
-			while(bt < 0) {
-				c = millis();
-				bt = c - (UL_MAX - b);
-			}
-			b = at;
-			a = c;
-			globalTimer += a-b; // Same but a and b flipped
-		}
-	}
-	if(a >= b) {
-		// so a is more recent time
-		b = millis();
-		globalTimer += (b - a);
-	} else {
-		a = millis();
-		globalTimer += (a - b);
-	}
-	#endif
-}
 void startFlow() {
 	// How do you start the flow??????
 	// Does nothing at the minute
