@@ -1,0 +1,129 @@
+eeschema (2012-oct-18)-testing  >> Creation date: Fri 16 Nov 2012 16:51:29 GMT
+
+#Cmp ( order = Reference )
+| BT1        BAT1        ;             
+| C1         100nF       ;             ; CA07637     
+| C2         47nF        ;             
+| C3         1uF         ;             ; CA05952     
+| C4         1uF         ;             ; CA05952     
+| C5         1uF         ;             ; CA05952     
+| C6         1uF         ;             ; CA05952     
+| C7         1uF         ;             ; CA05952     
+| C8         100nF       ;             
+| C9         2.2uF       ;             
+| D1         20V         ;             ;  1612407    
+| D2         DIODE       ;             
+| F1         FUSE 1A     ;             ; 1453528,1123079 
+| F2         FUSE 2A     ;             
+| J1         DB9_FLOWMETER_F;             
+| J2         DB9_ARD_BOX_M;             
+| J3         DB9_ARD_BOX_F;             
+| J4         DB25_PERIPHS_F;             
+| J5         DB25_PERIPHS_M;             
+| J6         DB25_PERIPHS_M;             
+| J7         DB25_PERIPHS_F;             
+| K1         CONN_ARD_RS232_M;             
+| K2         CONN_ARD_RS232_F;             
+| K3         LCD         ;             
+| P1         CONN_BAT_F  ;             
+| P2         CONN_BAT_M  ;             
+| P3         CONN_ARD_POWER_F;             
+| P4         CONN_ARD_POWER_M;             
+| P5         ARDUINO CONNS;             
+| P6         ARDUINO CONNS;             
+| P7         CONN_ARD_PERIPHS_M;             
+| P8         CONN_ARD_PERIPHS_F;             
+| R1         1k          ;             ; 1500663     
+| R2         10k         ;             ; 1653284     
+| R3         10k         ;             ; 1653284     
+| R4         10k         ;             ; 1653284     
+| R5         10k         ;             ; 1653284     
+| R6         10k         ;             ; 1653284     
+| R7         3k3         ;             ; 1500706     
+| R8         1k5         ;             
+| R9         10k         ;             ; 1653284     
+| R10        100k        ;             
+| RV1        POT         ;             
+| SP1        SPEAKER     ;             
+| SW1        1           ;             
+| SW2        2           ;             
+| SW3        3           ;             
+| SW4        4           ;             
+| SW5        5           ;             
+| SW6        6           ;             
+| SW7        7           ;             
+| SW8        8           ;             
+| SW9        9           ;             
+| SW10       *           ;             
+| SW11       0           ;             
+| SW12       #           ;             
+| SW13       KEYSW       ;             
+| T1         THYRISTOR   ;             ; 2101366     
+| U1         MAX232      ;             ; 1470443     
+| U2         LE33        ; MODULE      
+#End Cmp
+
+#Cmp ( order = Value )
+| BAT1         BT1       ;             
+| 47nF         C2        ;             
+| 100nF        C1        ;             ; CA07637     
+| 100nF        C8        ;             
+| 1uF          C3        ;             ; CA05952     
+| 1uF          C4        ;             ; CA05952     
+| 1uF          C5        ;             ; CA05952     
+| 1uF          C6        ;             ; CA05952     
+| 1uF          C7        ;             ; CA05952     
+| 2.2uF        C9        ;             
+| 20V          D1        ;             ;  1612407    
+| DIODE        D2        ;             
+| FUSE 1A      F1        ;             ; 1453528,1123079 
+| FUSE 2A      F2        ;             
+| DB9_FLOWMETER_F J1        ;             
+| DB9_ARD_BOX_M J2        ;             
+| DB9_ARD_BOX_F J3        ;             
+| DB25_PERIPHS_F J4        ;             
+| DB25_PERIPHS_M J5        ;             
+| DB25_PERIPHS_M J6        ;             
+| DB25_PERIPHS_F J7        ;             
+| CONN_ARD_RS232_M K1        ;             
+| CONN_ARD_RS232_F K2        ;             
+| LCD          K3        ;             
+| CONN_BAT_F   P1        ;             
+| CONN_BAT_M   P2        ;             
+| CONN_ARD_POWER_F P3        ;             
+| CONN_ARD_POWER_M P4        ;             
+| ARDUINO CONNS P5        ;             
+| ARDUINO CONNS P6        ;             
+| CONN_ARD_PERIPHS_M P7        ;             
+| CONN_ARD_PERIPHS_F P8        ;             
+| 1k           R1        ;             ; 1500663     
+| 1k5          R8        ;             
+| 3k3          R7        ;             ; 1500706     
+| 10k          R2        ;             ; 1653284     
+| 10k          R3        ;             ; 1653284     
+| 10k          R4        ;             ; 1653284     
+| 10k          R5        ;             ; 1653284     
+| 10k          R6        ;             ; 1653284     
+| 10k          R9        ;             ; 1653284     
+| 100k         R10       ;             
+| POT          RV1       ;             
+| SPEAKER      SP1       ;             
+| 0            SW11      ;             
+| 1            SW1       ;             
+| 2            SW2       ;             
+| 3            SW3       ;             
+| 4            SW4       ;             
+| 5            SW5       ;             
+| 6            SW6       ;             
+| 7            SW7       ;             
+| 8            SW8       ;             
+| 9            SW9       ;             
+| *            SW10      ;             
+| #            SW12      ;             
+| KEYSW        SW13      ;             
+| THYRISTOR    T1        ;             ; 2101366     
+| MAX232       U1        ;             ; 1470443     
+| LE33         U2        ; MODULE      
+#End Cmp
+
+#End List
