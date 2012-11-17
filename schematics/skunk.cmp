@@ -1,4 +1,4 @@
-Cmp-Mod V01 Created by CvPcb (2012-oct-18)-testing date = Sat 17 Nov 2012 00:15:28 GMT
+Cmp-Mod V01 Created by CvPcb (2012-apr-16-27)-stable date = Sat 17 Nov 2012 14:34:51 GMT
 
 BeginCmp
 TimeStamp = /5063529A;
@@ -88,14 +88,14 @@ BeginCmp
 TimeStamp = /506F151A;
 Reference = F1;
 ValeurCmp = FUSE_1A;
-IdModule  = ;
+IdModule  = FUSE5-20;
 EndCmp
 
 BeginCmp
 TimeStamp = /506F0508;
 Reference = F2;
 ValeurCmp = FUSE_2A;
-IdModule  = ;
+IdModule  = FUSE5-20;
 EndCmp
 
 BeginCmp
@@ -403,7 +403,7 @@ BeginCmp
 TimeStamp = /506F2A69;
 Reference = T1;
 ValeurCmp = THYRISTOR;
-IdModule  = ;
+IdModule  = TO225_VERT;
 EndCmp
 
 BeginCmp

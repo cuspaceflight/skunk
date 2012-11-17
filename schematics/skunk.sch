@@ -1,4 +1,4 @@
-EESchema Schematic File Version 2  date Sat 17 Nov 2012 00:17:53 GMT
+EESchema Schematic File Version 2  date Sat 17 Nov 2012 14:34:49 GMT
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -32,9 +32,9 @@ LIBS:valves
 LIBS:LE33
 LIBS:LE33_SOIC
 LIBS:skunk-cache
-EELAYER 27 0
+EELAYER 25  0
 EELAYER END
-$Descr A3 16535 11693
+$Descr A3 16535 11700
 encoding utf-8
 Sheet 1 1
 Title "SKUNK WIRING HARNESS AND SCHEMATIC"
@@ -374,6 +374,7 @@ U 1 1 506F0508
 P 1350 2250
 F 0 "F2" H 1450 2300 40  0000 C CNN
 F 1 "FUSE 2A" H 1300 2100 40  0000 C CNN
+F 4 "1453528x2,1123175" H 1350 2250 60  0001 C CNN "Farnell"
 	1    1350 2250
 	1    0    0    -1  
 $EndComp
@@ -441,7 +442,7 @@ F 4 "2101366 " H 5850 1100 60  0001 C CNN "Farnell"
 	1    5850 1100
 	0    -1   1    0   
 $EndComp
-Text Notes 1150 1750 0    60   ~ 0
+Text Notes 1100 1700 0    60   ~ 0
 POWER INPUT\n
 Text Notes 4250 1850 0    60   ~ 0
 OVERVOLTAGE CROWBAR
@@ -1470,4 +1471,22 @@ Connection ~ 4600 5600
 Wire Wire Line
 	4500 5500 4600 5500
 Connection ~ 4600 5500
+Wire Notes Line
+	1900 3700 1900 7650
+Wire Notes Line
+	1900 3700 600  3700
+Wire Notes Line
+	600  3700 600  1700
+Wire Notes Line
+	600  1700 2000 1700
+Wire Notes Line
+	2000 1700 2000 500 
+Wire Notes Line
+	2000 500  12050 500 
+Wire Notes Line
+	12050 7650 12050 500 
+Wire Notes Line
+	1900 7650 12050 7650
+Text Notes 8200 7650 0    60   ~ 0
+PCB
 $EndSCHEMATC
