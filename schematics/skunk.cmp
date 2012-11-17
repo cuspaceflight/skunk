@@ -1,4 +1,4 @@
-Cmp-Mod V01 Created by CvPcb (2012-apr-16-27)-stable date = Sat 17 Nov 2012 14:34:51 GMT
+Cmp-Mod V01 Created by CvPcb (2012-apr-16-27)-stable date = Sat 17 Nov 2012 16:38:27 GMT
 
 BeginCmp
 TimeStamp = /5063529A;
@@ -25,35 +25,35 @@ BeginCmp
 TimeStamp = /507ED57C;
 Reference = C3;
 ValeurCmp = 1uF;
-IdModule  = CP16;
+IdModule  = SM0805;
 EndCmp
 
 BeginCmp
 TimeStamp = /507ED59A;
 Reference = C4;
 ValeurCmp = 1uF;
-IdModule  = CP16;
+IdModule  = SM0805;
 EndCmp
 
 BeginCmp
 TimeStamp = /507ED19D;
 Reference = C5;
 ValeurCmp = 1uF;
-IdModule  = CP16;
+IdModule  = SM0805;
 EndCmp
 
 BeginCmp
 TimeStamp = /507ED58B;
 Reference = C6;
 ValeurCmp = 1uF;
-IdModule  = CP16;
+IdModule  = SM0805;
 EndCmp
 
 BeginCmp
 TimeStamp = /507ED5A9;
 Reference = C7;
 ValeurCmp = 1uF;
-IdModule  = CP16;
+IdModule  = SM0805;
 EndCmp
 
 BeginCmp
@@ -67,7 +67,7 @@ BeginCmp
 TimeStamp = /506FEE0E;
 Reference = C9;
 ValeurCmp = 2.2uF;
-IdModule  = CP16;
+IdModule  = SM0805;
 EndCmp
 
 BeginCmp
@@ -148,78 +148,64 @@ IdModule  = ;
 EndCmp
 
 BeginCmp
-TimeStamp = /507C8214;
+TimeStamp = /50A7A228;
 Reference = K1;
-ValeurCmp = CONN_ARD_RS232_M;
-IdModule  = ;
-EndCmp
-
-BeginCmp
-TimeStamp = /50636A67;
-Reference = K2;
-ValeurCmp = CONN_ARD_RS232_F;
-IdModule  = ;
-EndCmp
-
-BeginCmp
-TimeStamp = /50637AB3;
-Reference = K3;
-ValeurCmp = LCD;
-IdModule  = ;
-EndCmp
-
-BeginCmp
-TimeStamp = /506352C8;
-Reference = P1;
 ValeurCmp = CONN_BAT_F;
 IdModule  = ;
 EndCmp
 
 BeginCmp
-TimeStamp = /5063538D;
-Reference = P2;
+TimeStamp = /507C8214;
+Reference = K2;
+ValeurCmp = CONN_ARD_RS232_M;
+IdModule  = SIL-3;
+EndCmp
+
+BeginCmp
+TimeStamp = /50636A67;
+Reference = K3;
+ValeurCmp = CONN_ARD_RS232_F;
+IdModule  = ;
+EndCmp
+
+BeginCmp
+TimeStamp = /50A7A232;
+Reference = K4;
 ValeurCmp = CONN_BAT_M;
-IdModule  = ;
+IdModule  = BARREL_JACK;
 EndCmp
 
 BeginCmp
-TimeStamp = /50635E8C;
-Reference = P3;
-ValeurCmp = CONN_ARD_POWER_F;
-IdModule  = ;
-EndCmp
-
-BeginCmp
-TimeStamp = /506F9349;
-Reference = P4;
-ValeurCmp = CONN_ARD_POWER_M;
+TimeStamp = /50637AB3;
+Reference = K5;
+ValeurCmp = LCD;
 IdModule  = ;
 EndCmp
 
 BeginCmp
 TimeStamp = /506FB0F8;
-Reference = P5;
+Reference = P1;
 ValeurCmp = ARDUINO_CONNS;
 IdModule  = ;
 EndCmp
 
 BeginCmp
 TimeStamp = /506FB107;
-Reference = P6;
+Reference = P2;
 ValeurCmp = ARDUINO_CONNS;
 IdModule  = ;
 EndCmp
 
 BeginCmp
 TimeStamp = /506FE3B5;
-Reference = P7;
+Reference = P3;
 ValeurCmp = CONN_ARD_PERIPHS_M;
 IdModule  = ;
 EndCmp
 
 BeginCmp
 TimeStamp = /50636A9D;
-Reference = P8;
+Reference = P4;
 ValeurCmp = CONN_ARD_PERIPHS_F;
 IdModule  = ;
 EndCmp
@@ -407,15 +393,22 @@ IdModule  = TO225_VERT;
 EndCmp
 
 BeginCmp
-TimeStamp = /507EC0FA;
+TimeStamp = /50A7BA46;
 Reference = U1;
+ValeurCmp = BOOST_SWITCHER;
+IdModule  = MODULE;
+EndCmp
+
+BeginCmp
+TimeStamp = /507EC0FA;
+Reference = U2;
 ValeurCmp = MAX232;
 IdModule  = SO16E;
 EndCmp
 
 BeginCmp
 TimeStamp = /50A6C860;
-Reference = U2;
+Reference = U3;
 ValeurCmp = LE33_SOIC;
 IdModule  = SO8E;
 EndCmp
