@@ -1,4 +1,4 @@
-update=Wed 17 Oct 2012 16:15:00 BST
+update=Fri 16 Nov 2012 23:11:45 GMT
 version=1
 last_client=eeschema
 [cvpcb]
@@ -119,3 +119,4 @@ LibName28=atmel
 LibName29=contrib
 LibName30=valves
 LibName31=LE33
+LibName32=LE33_SOIC
