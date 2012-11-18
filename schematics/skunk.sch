@@ -1,4 +1,4 @@
-EESchema Schematic File Version 2  date Sun 18 Nov 2012 21:37:19 GMT
+EESchema Schematic File Version 2  date Sun 18 Nov 2012 22:34:09 GMT
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -201,9 +201,6 @@ Wire Wire Line
 	15050 1250 14050 1250
 Wire Wire Line
 	4100 750  3550 750 
-Connection ~ 3650 1700
-Wire Wire Line
-	3650 1700 5850 1700
 Wire Wire Line
 	3650 2750 3650 550 
 Wire Wire Line
@@ -254,11 +251,9 @@ Wire Wire Line
 	9650 10350 10000 10350
 Connection ~ 8800 4150
 Wire Wire Line
-	8750 5950 9050 5950
-Wire Wire Line
 	9050 5950 9050 4150
 Wire Wire Line
-	4800 5950 8250 5950
+	4800 5950 8300 5950
 Wire Wire Line
 	6100 6900 7850 6900
 Wire Wire Line
@@ -381,28 +376,21 @@ Wire Wire Line
 	3650 2750 1100 2750
 Wire Wire Line
 	3750 2850 1050 2850
-Connection ~ 5450 1700
 Wire Wire Line
-	5850 1700 5850 1300
+	5850 1750 5850 1300
 Connection ~ 5150 750 
 Wire Wire Line
 	5850 900  5850 750 
 Connection ~ 5450 1200
 Wire Wire Line
-	5450 1200 5450 1250
-Wire Wire Line
-	5700 1200 5150 1200
-Connection ~ 5150 1700
-Wire Wire Line
-	5450 1650 5450 1700
+	5450 1200 5450 1350
 Connection ~ 4700 750 
 Wire Wire Line
-	5150 1200 5150 1150
-Connection ~ 4700 1700
+	5150 1150 5150 1250
 Wire Wire Line
 	4700 750  4700 950 
 Wire Wire Line
-	4700 1700 4700 1350
+	4700 1350 4700 1750
 Connection ~ 800  2450
 Wire Wire Line
 	1050 2850 1050 2450
@@ -1099,7 +1087,7 @@ F 4 "1453528x2,1123079 " H 4350 750 60  0001 C CNN "Farnell"
 	1    4350 750 
 	1    0    0    -1  
 $EndComp
-Text Label 3850 1700 0    60   ~ 0
+Text Label 3850 1750 0    60   ~ 0
 0V
 $Comp
 L C C1
@@ -1124,21 +1112,21 @@ $EndComp
 $Comp
 L R R1
 U 1 1 506F1D33
-P 5150 1450
-F 0 "R1" V 5230 1450 50  0000 C CNN
-F 1 "1k" V 5150 1450 50  0000 C CNN
-F 4 "1500663 " V 5150 1450 60  0001 C CNN "Farnell"
-	1    5150 1450
+P 5150 1500
+F 0 "R1" V 5230 1500 50  0000 C CNN
+F 1 "1k" V 5150 1500 50  0000 C CNN
+F 4 "1500663 " V 5150 1500 60  0001 C CNN "Farnell"
+	1    5150 1500
 	1    0    0    -1  
 $EndComp
 $Comp
 L C C2
 U 1 1 506F22D9
-P 5450 1450
-F 0 "C2" H 5500 1550 50  0000 L CNN
-F 1 "47nF" H 5500 1350 50  0000 L CNN
-F 4 "CA06675 " H 5450 1450 60  0001 C CNN "Farnell"
-	1    5450 1450
+P 5450 1550
+F 0 "C2" H 5500 1650 50  0000 L CNN
+F 1 "47nF" H 5500 1450 50  0000 L CNN
+F 4 "CA06675 " H 5450 1550 60  0001 C CNN "Farnell"
+	1    5450 1550
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -1153,7 +1141,7 @@ F 4 "2101366 " H 5850 1100 60  0001 C CNN "Farnell"
 $EndComp
 Text Notes 1100 1700 0    60   ~ 0
 POWER INPUT\n
-Text Notes 4250 1850 0    60   ~ 0
+Text Notes 4250 1900 0    60   ~ 0
 OVERVOLTAGE CROWBAR
 $Comp
 L DIODE D2
@@ -1349,11 +1337,11 @@ $EndComp
 $Comp
 L R R9
 U 1 1 5070099C
-P 8500 5950
-F 0 "R9" V 8580 5950 50  0000 C CNN
-F 1 "10k" V 8500 5950 50  0000 C CNN
-F 4 "1653284 " V 8500 5950 60  0001 C CNN "Farnell"
-	1    8500 5950
+P 8550 5950
+F 0 "R9" V 8630 5950 50  0000 C CNN
+F 1 "10k" V 8550 5950 50  0000 C CNN
+F 4 "1653284 " V 8550 5950 60  0001 C CNN "Farnell"
+	1    8550 5950
 	0    -1   -1   0   
 $EndComp
 Text Label 6750 4150 0    60   ~ 0
@@ -1521,4 +1509,16 @@ Wire Wire Line
 	5450 5600 5450 6400
 Wire Wire Line
 	5450 6400 5400 6400
+Wire Wire Line
+	5700 1200 5150 1200
+Connection ~ 3650 1750
+Connection ~ 5150 1200
+Connection ~ 4700 1750
+Wire Wire Line
+	3650 1750 5850 1750
+Connection ~ 5150 1750
+Connection ~ 5450 1750
+Connection ~ 8250 5950
+Wire Wire Line
+	8800 5950 9050 5950
 $EndSCHEMATC
