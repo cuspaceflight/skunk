@@ -1,4 +1,4 @@
-EESchema Schematic File Version 2  date Sun 18 Nov 2012 17:17:56 GMT
+EESchema Schematic File Version 2  date Sun 18 Nov 2012 17:43:20 GMT
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -48,6 +48,36 @@ Comment2 ""
 Comment3 ""
 Comment4 ""
 $EndDescr
+Text Label 11100 1450 1    60   ~ 0
++16V
+Text Label 11200 1450 1    60   ~ 0
+0V_SENSE
+Text Label 11300 1450 1    60   ~ 0
+0V
+Wire Wire Line
+	11550 1500 11300 1500
+Wire Wire Line
+	11300 1500 11300 550 
+Wire Wire Line
+	11300 550  3650 550 
+Wire Wire Line
+	11550 1700 11100 1700
+Wire Wire Line
+	11100 1700 11100 750 
+Wire Wire Line
+	11100 750  4600 750 
+Wire Wire Line
+	12600 1600 12700 1600
+Wire Wire Line
+	12700 1600 12700 1050
+Wire Wire Line
+	12700 1050 15050 1050
+Wire Wire Line
+	13000 2000 12800 2000
+Wire Wire Line
+	12800 2000 12800 1900
+Wire Wire Line
+	12800 1900 12600 1900
 Wire Notes Line
 	13050 2550 16000 2550
 Wire Notes Line
@@ -75,11 +105,7 @@ Wire Wire Line
 Wire Wire Line
 	1000 2250 1050 2250
 Wire Wire Line
-	14050 1150 14050 1250
-Wire Wire Line
-	14050 1150 13750 1150
-Wire Wire Line
-	13750 1150 13750 750 
+	14050 1250 14050 1150
 Wire Wire Line
 	5600 8200 5600 9750
 Wire Wire Line
@@ -176,14 +202,6 @@ Wire Wire Line
 Wire Wire Line
 	4800 10350 6750 10350
 Wire Wire Line
-	13000 2000 12550 2000
-Wire Wire Line
-	12550 2000 12550 1900
-Wire Wire Line
-	12550 1900 12500 1900
-Wire Wire Line
-	12500 1800 13000 1800
-Wire Wire Line
 	13000 1900 12850 1900
 Wire Wire Line
 	12850 1900 12850 1700
@@ -272,10 +290,6 @@ Wire Wire Line
 	5500 9550 5500 8200
 Wire Wire Line
 	5700 9950 5700 8200
-Wire Wire Line
-	13950 550  13950 950 
-Wire Wire Line
-	13850 650  13850 1050
 Wire Wire Line
 	8100 8250 8300 8250
 Wire Wire Line
@@ -546,8 +560,6 @@ Wire Wire Line
 Wire Wire Line
 	5100 5200 5100 7100
 Wire Wire Line
-	13750 750  4600 750 
-Wire Wire Line
 	3750 2850 3750 650 
 Wire Wire Line
 	3650 2750 3650 550 
@@ -555,15 +567,7 @@ Wire Wire Line
 	5850 1700 3650 1700
 Connection ~ 3650 1700
 Wire Wire Line
-	3650 550  13950 550 
-Wire Wire Line
-	3750 650  13850 650 
-Wire Wire Line
 	3550 750  4100 750 
-Wire Wire Line
-	13950 950  15050 950 
-Wire Wire Line
-	13850 1050 15050 1050
 Wire Wire Line
 	14050 1250 15050 1250
 Wire Wire Line
@@ -696,6 +700,42 @@ Wire Notes Line
 	600  1700 600  7650
 Wire Notes Line
 	600  7650 12050 7650
+Wire Wire Line
+	12600 1800 13000 1800
+Wire Wire Line
+	14050 1150 12800 1150
+Wire Wire Line
+	12800 1150 12800 1700
+Wire Wire Line
+	12800 1700 12600 1700
+Wire Wire Line
+	15050 950  12600 950 
+Wire Wire Line
+	12600 950  12600 1500
+Wire Wire Line
+	3750 650  11200 650 
+Wire Wire Line
+	11200 650  11200 1600
+Wire Wire Line
+	11200 1600 11550 1600
+$Comp
+L CONN_5 P6
+U 1 1 50A91CD4
+P 12200 1700
+F 0 "P6" V 12150 1700 50  0000 C CNN
+F 1 "CONN_ARD_FLOW_F" H 11950 1400 50  0000 C CNN
+	1    12200 1700
+	-1   0    0    -1  
+$EndComp
+$Comp
+L CONN_5 P5
+U 1 1 50A91CD0
+P 11950 1700
+F 0 "P5" V 11900 1700 50  0000 C CNN
+F 1 "CONN_ARD_FLOW_M" H 11700 1400 50  0000 C CNN
+	1    11950 1700
+	1    0    0    -1  
+$EndComp
 Text Label 15450 6650 0    60   ~ 0
 SPK
 Text Label 13550 4000 2    60   ~ 0
@@ -760,7 +800,7 @@ U 1 1 50A7A232
 P 900 1900
 F 0 "K4" V 850 1900 50  0000 C CNN
 F 1 "CONN_BAT_M" V 1050 1900 40  0000 C CNN
-F 4 "1608726,1608727" V 900 1900 60  0001 C CNN "Farnell"
+F 4 "1608727" V 900 1900 60  0001 C CNN "Farnell"
 	1    900  1900
 	0    1    -1   0   
 $EndComp
@@ -974,15 +1014,6 @@ F 1 "CONN_ARD_PERIPHS_F" V 5530 7850 60  0000 C CNN
 	1    5450 7850
 	0    -1   -1   0   
 $EndComp
-$Comp
-L CONN_3 K3
-U 1 1 50636A67
-P 12150 1800
-F 0 "K3" V 12100 1800 50  0000 C CNN
-F 1 "CONN_ARD_RS232_F" H 11950 2000 40  0000 C CNN
-	1    12150 1800
-	-1   0    0    -1  
-$EndComp
 Text Label 12600 1800 0    60   ~ 0
 RX
 Text Label 14100 1050 0    60   ~ 0
@@ -1004,7 +1035,7 @@ F 1 "DB9_FLOWMETER_F" H 15400 600 70  0000 C CNN
 	1    15500 1150
 	1    0    0    -1  
 $EndComp
-Text Label 12600 2000 0    60   ~ 0
+Text Label 12600 1900 0    60   ~ 0
 TX
 $Comp
 L DB9 J2
@@ -1025,10 +1056,10 @@ F 1 "DB9_ARD_BOX_F" H 13500 1200 70  0000 C CNN
 	-1   0    0    -1  
 $EndComp
 $Comp
-L GND #PWR1
+L GND #PWR01
 U 1 1 50635463
 P 800 2600
-F 0 "#PWR1" H 800 2600 30  0001 C CNN
+F 0 "#PWR01" H 800 2600 30  0001 C CNN
 F 1 "GND" H 800 2530 30  0001 C CNN
 	1    800  2600
 	1    0    0    -1  
@@ -1376,15 +1407,6 @@ F 1 "1k5" V 6000 5650 50  0000 C CNN
 $EndComp
 Text Notes 6050 5300 0    60   ~ 0
 BATT SCALING\n12V -> 3.75V
-$Comp
-L CONN_3 K2
-U 1 1 507C8214
-P 11900 1800
-F 0 "K2" V 11850 1800 50  0000 C CNN
-F 1 "CONN_ARD_RS232_M" H 11700 2000 40  0000 C CNN
-	1    11900 1800
-	1    0    0    -1  
-$EndComp
 $Comp
 L MAX232 U2
 U 1 1 507EC0FA

@@ -1,4 +1,4 @@
-Cmp-Mod V01 Created by CvPcb (2012-apr-16-27)-stable date = Sun 18 Nov 2012 17:14:50 GMT
+Cmp-Mod V01 Created by CvPcb (2012-apr-16-27)-stable date = Sun 18 Nov 2012 17:43:42 GMT
 
 BeginCmp
 TimeStamp = /5063529A;
@@ -155,20 +155,6 @@ IdModule  = ;
 EndCmp
 
 BeginCmp
-TimeStamp = /507C8214;
-Reference = K2;
-ValeurCmp = CONN_ARD_RS232_M;
-IdModule  = SIL-3;
-EndCmp
-
-BeginCmp
-TimeStamp = /50636A67;
-Reference = K3;
-ValeurCmp = CONN_ARD_RS232_F;
-IdModule  = ;
-EndCmp
-
-BeginCmp
 TimeStamp = /50A7A232;
 Reference = K4;
 ValeurCmp = CONN_BAT_M;
@@ -207,6 +193,20 @@ BeginCmp
 TimeStamp = /50636A9D;
 Reference = P4;
 ValeurCmp = CONN_ARD_PERIPHS_F;
+IdModule  = ;
+EndCmp
+
+BeginCmp
+TimeStamp = /50A91CD0;
+Reference = P5;
+ValeurCmp = CONN_ARD_FLOW_M;
+IdModule  = SIL-5;
+EndCmp
+
+BeginCmp
+TimeStamp = /50A91CD4;
+Reference = P6;
+ValeurCmp = CONN_ARD_FLOW_F;
 IdModule  = ;
 EndCmp
 
