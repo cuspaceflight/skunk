@@ -1,4 +1,4 @@
-update=Sun 18 Nov 2012 14:47:34 GMT
+update=Sun 18 Nov 2012 17:15:07 GMT
 version=1
 last_client=pcbnew
 [general]
@@ -107,3 +107,4 @@ LibName11=valves
 LibName12=/home/dwt27/git/skunk/schematics/arduino_shields
 LibName13=/home/dwt27/git/skunk/schematics/DIL-14
 LibName14=/home/dwt27/git/skunk/schematics/TO225_VERT
+LibName15=BOOSTSWITCH

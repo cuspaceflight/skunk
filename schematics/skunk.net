@@ -1,4 +1,4 @@
-# EESchema Netlist Version 1.1 created  Sun 18 Nov 2012 14:51:14 GMT
+# EESchema Netlist Version 1.1 created  Sun 18 Nov 2012 17:14:50 GMT
 (
  ( /5063529A $noname$ BT1 BAT1
   ( 1 N-000041 )
@@ -465,7 +465,7 @@
   ( G N-000115 )
   ( K GND )
  )
- ( /50A7BA46 MODULE U1 BOOST_SWITCHER
+ ( /50A7BA46 BOOSTSWITCH U1 BOOST_SWITCHER
   ( 1 /+12V )
   ( 2 GND )
   ( 3 GND )
