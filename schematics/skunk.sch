@@ -1,4 +1,4 @@
-EESchema Schematic File Version 2  date Sun 18 Nov 2012 18:05:30 GMT
+EESchema Schematic File Version 2  date Sun 18 Nov 2012 21:37:19 GMT
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -34,9 +34,9 @@ LIBS:LE33_SOIC
 LIBS:BOOST_SWITCHER
 LIBS:arduino_shieldsNCL
 LIBS:skunk-cache
-EELAYER 25  0
+EELAYER 27 0
 EELAYER END
-$Descr A3 16535 11700
+$Descr A3 16535 11693
 encoding utf-8
 Sheet 1 1
 Title "SKUNK WIRING HARNESS AND SCHEMATIC"
@@ -233,11 +233,9 @@ Wire Wire Line
 Wire Wire Line
 	12200 8850 9650 8850
 Wire Wire Line
-	11700 9000 10850 9000
+	10850 9000 12250 9000
 Wire Wire Line
 	10850 9000 10850 9650
-Wire Wire Line
-	12200 9000 12250 9000
 Wire Wire Line
 	12250 9100 10950 9100
 Wire Wire Line
@@ -304,11 +302,7 @@ Connection ~ 5050 4300
 Wire Wire Line
 	5050 5200 5050 4300
 Wire Wire Line
-	5400 6400 5350 6400
-Wire Wire Line
 	5400 6400 5400 7100
-Wire Wire Line
-	5000 6300 5450 6300
 Wire Wire Line
 	5000 6300 5000 7100
 Connection ~ 6000 4500
@@ -320,8 +314,6 @@ Wire Wire Line
 	5250 6100 5250 4500
 Wire Wire Line
 	4800 5950 4800 7100
-Wire Wire Line
-	5350 6400 5350 4800
 Wire Wire Line
 	6000 4500 6000 4150
 Wire Wire Line
@@ -355,8 +347,6 @@ Connection ~ 5150 4400
 Wire Wire Line
 	5150 5050 5150 4400
 Wire Wire Line
-	5450 6300 5450 4900
-Wire Wire Line
 	4750 4700 6350 4700
 Wire Wire Line
 	13400 8400 13050 8400
@@ -381,9 +371,7 @@ Wire Wire Line
 Wire Wire Line
 	8150 4400 7250 4400
 Wire Wire Line
-	5450 4900 6350 4900
-Wire Wire Line
-	5350 4800 6350 4800
+	5300 4900 6350 4900
 Wire Wire Line
 	4850 4600 6350 4600
 Wire Wire Line
@@ -823,9 +811,7 @@ Text Label 14100 1250 0    60   ~ 0
 +16V
 Text Label 13100 8600 0    60   ~ 0
 0V
-Text Label 11250 9000 0    60   ~ 0
-LCD_DATA
-Text Label 11250 9100 0    60   ~ 0
+Text Label 11650 9100 0    60   ~ 0
 3V3
 Text Label 10150 8250 0    60   ~ 0
 +5V
@@ -1299,8 +1285,8 @@ Text Label 6300 9150 0    60   ~ 0
 C2
 Text Label 6300 9550 0    60   ~ 0
 C3
-Text Label 6300 9650 0    60   ~ 0
-LCD_DATA
+Text Label 5850 9650 0    60   ~ 0
+LCD_DATA_CLAMPED
 Text Label 6300 9750 0    60   ~ 0
 R1
 Text Label 6300 9850 0    60   ~ 0
@@ -1377,15 +1363,15 @@ Text Label 8850 5950 0    60   ~ 0
 $Comp
 L R R10
 U 1 1 507C15C2
-P 11950 9000
-F 0 "R10" V 12030 9000 50  0000 C CNN
-F 1 "100k" V 11950 9000 50  0000 C CNN
-F 4 "1653286 " V 11950 9000 60  0001 C CNN "Farnell"
-	1    11950 9000
-	0    -1   -1   0   
+P 5450 5350
+F 0 "R10" V 5530 5350 50  0000 C CNN
+F 1 "100k" V 5450 5350 50  0000 C CNN
+F 4 "1653286 " V 5450 5350 60  0001 C CNN "Farnell"
+	1    5450 5350
+	-1   0    0    1   
 $EndComp
-Text Notes 11400 8850 0    60   ~ 0
-CLAMP RESISTOR
+Text Notes 5600 5650 1    60   ~ 0
+CLAMP\nRESISTOR
 $Comp
 L R R7
 U 1 1 507C11BB
@@ -1519,4 +1505,20 @@ Text Label 2850 5200 0    60   ~ 0
 3V3
 Text Notes 8200 7650 0    60   ~ 0
 PCB
+Text Label 11650 8850 0    60   ~ 0
+0V
+Text Label 11350 9000 0    60   ~ 0
+LCD_DATA_CLAMPED
+Wire Wire Line
+	5300 4900 5300 6300
+Wire Wire Line
+	5300 6300 5000 6300
+Wire Wire Line
+	6350 4800 5450 4800
+Wire Wire Line
+	5450 4800 5450 5100
+Wire Wire Line
+	5450 5600 5450 6400
+Wire Wire Line
+	5450 6400 5400 6400
 $EndSCHEMATC
