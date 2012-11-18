@@ -1,6 +1,6 @@
-update=Sat 17 Nov 2012 16:24:32 GMT
+update=Sun 18 Nov 2012 13:57:31 GMT
 version=1
-last_client=eeschema
+last_client=cvpcb
 [pcbnew]
 version=1
 PadDrlX=320
@@ -67,14 +67,10 @@ LibName8=valves
 LibName9=led
 LibName10=dip_sockets
 LibName11=TO225_VERT
+LibName12=DIL-14
 LibDir=
 [general]
 version=1
-[cvpcb]
-version=1
-NetIExt=net
-[cvpcb/libraries]
-EquName1=devcms
 [eeschema]
 version=1
 LibDir=
@@ -140,3 +136,8 @@ LibName30=valves
 LibName31=LE33
 LibName32=LE33_SOIC
 LibName33=BOOST_SWITCHER
+[cvpcb]
+version=1
+NetIExt=net
+[cvpcb/libraries]
+EquName1=devcms

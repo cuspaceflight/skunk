@@ -1,4 +1,4 @@
-Cmp-Mod V01 Created by CvPcb (2012-apr-16-27)-stable date = Sat 17 Nov 2012 16:38:27 GMT
+Cmp-Mod V01 Created by CvPcb (2012-apr-16-27)-stable date = Sun 18 Nov 2012 13:57:44 GMT
 
 BeginCmp
 TimeStamp = /5063529A;
@@ -200,7 +200,7 @@ BeginCmp
 TimeStamp = /506FE3B5;
 Reference = P3;
 ValeurCmp = CONN_ARD_PERIPHS_M;
-IdModule  = ;
+IdModule  = DIL-14;
 EndCmp
 
 BeginCmp
