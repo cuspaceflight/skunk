@@ -1,4 +1,4 @@
-EESchema Schematic File Version 2  date Sun 18 Nov 2012 13:57:42 GMT
+EESchema Schematic File Version 2  date Sun 18 Nov 2012 14:31:00 GMT
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -32,6 +32,7 @@ LIBS:valves
 LIBS:LE33
 LIBS:LE33_SOIC
 LIBS:BOOST_SWITCHER
+LIBS:arduino_shieldsNCL
 LIBS:skunk-cache
 EELAYER 25  0
 EELAYER END
@@ -39,7 +40,7 @@ $Descr A3 16535 11700
 encoding utf-8
 Sheet 1 1
 Title "SKUNK WIRING HARNESS AND SCHEMATIC"
-Date "17 nov 2012"
+Date "18 nov 2012"
 Rev ""
 Comp "CAMBRIDGE UNIVERSITY SPACE FLIGHT - dwt27"
 Comment1 ""

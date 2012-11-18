@@ -1,4 +1,4 @@
-update=Sun 18 Nov 2012 13:57:31 GMT
+update=Sun 18 Nov 2012 14:28:49 GMT
 version=1
 last_client=cvpcb
 [pcbnew]
@@ -68,6 +68,7 @@ LibName9=led
 LibName10=dip_sockets
 LibName11=TO225_VERT
 LibName12=DIL-14
+LibName13=arduino_shields
 LibDir=
 [general]
 version=1
@@ -136,6 +137,7 @@ LibName30=valves
 LibName31=LE33
 LibName32=LE33_SOIC
 LibName33=BOOST_SWITCHER
+LibName34=arduino_shieldsNCL
 [cvpcb]
 version=1
 NetIExt=net
