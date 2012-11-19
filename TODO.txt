@@ -1,3 +1,2 @@
 Tim's R2 PCB complains:
 * Insufficient clearance for fuse
-* Hole and GND1 via suspiciously close to edge - enlarge board
