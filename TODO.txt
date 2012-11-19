@@ -1,2 +1,1 @@
-Tim's R2 PCB complains:
-* Insufficient clearance for fuse
+
