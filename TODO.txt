@@ -1,1 +1,5 @@
-Check RS232 signal direction + connections rx/tx
+Tim's R2 PCB complains:
+* Split ground plane (badly on top side)
+* Insufficient copper on right edge (optimise ground full on top side)
+* Insufficient clearance for fuse
+* Hole and GND1 via suspiciously close to edge - enlarge board

@@ -1,4 +1,4 @@
-EESchema Schematic File Version 2  date Mon 19 Nov 2012 18:14:12 GMT
+EESchema Schematic File Version 2  date Mon 19 Nov 2012 18:55:07 GMT
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -40,7 +40,7 @@ $Descr A3 16535 11693
 encoding utf-8
 Sheet 1 1
 Title "SKUNK WIRING HARNESS AND SCHEMATIC"
-Date "18 nov 2012"
+Date "19 nov 2012"
 Rev ""
 Comp "CAMBRIDGE UNIVERSITY SPACE FLIGHT - dwt27"
 Comment1 ""
@@ -1521,4 +1521,8 @@ Connection ~ 5450 1750
 Connection ~ 8250 5950
 Wire Wire Line
 	8800 5950 9050 5950
+Text Label 13550 5750 2    60   ~ 0
+GND
+Text Label 13550 5850 2    60   ~ 0
+GND
 $EndSCHEMATC
