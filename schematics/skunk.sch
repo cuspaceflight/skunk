@@ -1,4 +1,4 @@
-EESchema Schematic File Version 2  date Mon 19 Nov 2012 18:55:07 GMT
+EESchema Schematic File Version 2  date Mon 19 Nov 2012 20:31:05 GMT
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -1524,5 +1524,7 @@ Wire Wire Line
 Text Label 13550 5750 2    60   ~ 0
 GND
 Text Label 13550 5850 2    60   ~ 0
+GND
+Text Label 13550 3600 2    60   ~ 0
 GND
 $EndSCHEMATC
