@@ -1,1 +1,10 @@
+Stitch ground planes
+Via 12V line and others to unsplit back ground plane
+Label connectors and pinouts on silk
+
+Export: Front, back gerber files
+Copper
+Silk
+Mask
+Drill DRL file
 
