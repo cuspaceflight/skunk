@@ -1,4 +1,4 @@
-update=Wed 21 Nov 2012 20:20:01 GMT
+update=Wed 21 Nov 2012 20:42:36 GMT
 version=1
 last_client=pcbnew
 [general]
@@ -104,8 +104,8 @@ LibName8=led
 LibName9=dip_sockets
 LibName10=pga_sockets
 LibName11=valves
-LibName12=/home/dwt27/git/skunk/schematics/arduino_shields
-LibName13=/home/dwt27/git/skunk/schematics/DIL-14
-LibName14=/home/dwt27/git/skunk/schematics/TO225_VERT
-LibName15=/home/dwt27/git/skunk/schematics/pepe
-LibName16=cusf
+LibName12=/home/dwt27/git/skunk/schematics/DIL-14
+LibName13=/home/dwt27/git/skunk/schematics/TO225_VERT
+LibName14=/home/dwt27/git/skunk/schematics/pepe
+LibName15=cusf
+LibName16=arduino_shields
