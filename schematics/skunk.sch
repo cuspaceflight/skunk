@@ -1,4 +1,4 @@
-EESchema Schematic File Version 2  date Mon 19 Nov 2012 20:31:05 GMT
+EESchema Schematic File Version 2  date Wed 21 Nov 2012 17:46:31 GMT
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -40,7 +40,7 @@ $Descr A3 16535 11693
 encoding utf-8
 Sheet 1 1
 Title "SKUNK WIRING HARNESS AND SCHEMATIC"
-Date "19 nov 2012"
+Date "21 nov 2012"
 Rev ""
 Comp "CAMBRIDGE UNIVERSITY SPACE FLIGHT - dwt27"
 Comment1 ""
@@ -1376,6 +1376,7 @@ U 1 1 507C11CA
 P 6000 5650
 F 0 "R8" V 6080 5650 50  0000 C CNN
 F 1 "1k5" V 6000 5650 50  0000 C CNN
+F 4 "1653291" V 6000 5650 60  0001 C CNN "Farnell"
 	1    6000 5650
 	-1   0    0    1   
 $EndComp
