@@ -1,4 +1,4 @@
-EESchema Schematic File Version 2  date Wed 21 Nov 2012 17:46:31 GMT
+EESchema Schematic File Version 2  date Wed 21 Nov 2012 20:07:56 GMT
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -1528,4 +1528,24 @@ Text Label 13550 5850 2    60   ~ 0
 GND
 Text Label 13550 3600 2    60   ~ 0
 GND
+$Comp
+L CONN_1 P7
+U 1 1 50AD3394
+P 1550 9800
+F 0 "P7" H 1630 9800 40  0000 L CNN
+F 1 "CONN_1" H 1550 9855 30  0001 C CNN
+	1    1550 9800
+	1    0    0    -1  
+$EndComp
+Text Notes 1400 9750 0    60   ~ 0
+LOGOS
+$Comp
+L CONN_1 P8
+U 1 1 50AD36B2
+P 1550 9900
+F 0 "P8" H 1630 9900 40  0000 L CNN
+F 1 "CONN_1" H 1550 9955 30  0001 C CNN
+	1    1550 9900
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC

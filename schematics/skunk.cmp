@@ -1,4 +1,4 @@
-Cmp-Mod V01 Created by CvPcb (2012-apr-16-27)-stable date = Sun 18 Nov 2012 17:43:42 GMT
+Cmp-Mod V01 Created by CvPcb (2012-oct-18)-testing date = Wed 21 Nov 2012 20:11:51 GMT
 
 BeginCmp
 TimeStamp = /5063529A;
@@ -208,6 +208,20 @@ TimeStamp = /50A91CD4;
 Reference = P6;
 ValeurCmp = CONN_ARD_FLOW_F;
 IdModule  = ;
+EndCmp
+
+BeginCmp
+TimeStamp = /50AD3394;
+Reference = P7;
+ValeurCmp = CONN_1;
+IdModule  = PEPE;
+EndCmp
+
+BeginCmp
+TimeStamp = /50AD36B2;
+Reference = P8;
+ValeurCmp = CONN_1;
+IdModule  = LOGO;
 EndCmp
 
 BeginCmp
