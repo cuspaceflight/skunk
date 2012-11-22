@@ -1,4 +1,4 @@
-update=Thu 22 Nov 2012 15:00:32 GMT
+update=Thu 22 Nov 2012 16:59:06 GMT
 version=1
 last_client=pcbnew
 [general]
@@ -110,3 +110,4 @@ LibName14=/home/dwt27/git/skunk/schematics/pepe
 LibName15=cusf
 LibName16=arduino_shields
 LibName17=barreljack_roundholes
+LibName18=SO16_WIDER_PADS

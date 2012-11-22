@@ -1,4 +1,4 @@
-Cmp-Mod V01 Created by CvPcb (2012-oct-18)-testing date = Thu 22 Nov 2012 15:00:16 GMT
+Cmp-Mod V01 Created by CvPcb (2012-oct-18)-testing date = Thu 22 Nov 2012 16:58:48 GMT
 
 BeginCmp
 TimeStamp = /5063529A;
@@ -424,7 +424,7 @@ BeginCmp
 TimeStamp = /507EC0FA;
 Reference = U2;
 ValeurCmp = MAX232;
-IdModule  = SO16E;
+IdModule  = SO16E_WIDER_PADS;
 EndCmp
 
 BeginCmp
