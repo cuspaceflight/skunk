@@ -1,9 +1,1 @@
-Label connectors and pinouts on silk
-Add logo
-
-Export: Front, back gerber files
-Copper
-Silk
-Mask
-Drill DRL file
 
