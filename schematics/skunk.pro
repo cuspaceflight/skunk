@@ -1,4 +1,4 @@
-update=Wed 21 Nov 2012 20:42:36 GMT
+update=Thu 22 Nov 2012 15:00:32 GMT
 version=1
 last_client=pcbnew
 [general]
@@ -109,3 +109,4 @@ LibName13=/home/dwt27/git/skunk/schematics/TO225_VERT
 LibName14=/home/dwt27/git/skunk/schematics/pepe
 LibName15=cusf
 LibName16=arduino_shields
+LibName17=barreljack_roundholes

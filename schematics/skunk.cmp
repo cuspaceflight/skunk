@@ -1,4 +1,4 @@
-Cmp-Mod V01 Created by CvPcb (2012-oct-18)-testing date = Wed 21 Nov 2012 20:11:51 GMT
+Cmp-Mod V01 Created by CvPcb (2012-oct-18)-testing date = Thu 22 Nov 2012 15:00:16 GMT
 
 BeginCmp
 TimeStamp = /5063529A;
@@ -158,7 +158,7 @@ BeginCmp
 TimeStamp = /50A7A232;
 Reference = K4;
 ValeurCmp = CONN_BAT_M;
-IdModule  = BARREL_JACK;
+IdModule  = BARREL_JACK_ROUND;
 EndCmp
 
 BeginCmp
