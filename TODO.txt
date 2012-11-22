@@ -1,3 +1,1 @@
-Change max232 foorprint direction indication on silk
-Check LE33 direction silk
 
