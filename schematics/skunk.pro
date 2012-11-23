@@ -1,4 +1,4 @@
-update=Thu 22 Nov 2012 16:59:06 GMT
+update=Fri 23 Nov 2012 15:09:36 GMT
 version=1
 last_client=pcbnew
 [general]
@@ -76,7 +76,7 @@ NetIExt=net
 EquName1=devcms
 [pcbnew]
 version=1
-LastNetListRead=skunk.net
+LastNetListRead=
 PadDrill=0.8128
 PadSizeH=1.397
 PadSizeV=1.397
@@ -107,7 +107,7 @@ LibName11=valves
 LibName12=/home/dwt27/git/skunk/schematics/DIL-14
 LibName13=/home/dwt27/git/skunk/schematics/TO225_VERT
 LibName14=/home/dwt27/git/skunk/schematics/pepe
-LibName15=cusf
-LibName16=arduino_shields
-LibName17=barreljack_roundholes
-LibName18=SO16_WIDER_PADS
+LibName15=/home/dwt27/git/skunk/schematics/cusf
+LibName16=/home/dwt27/git/skunk/schematics/barreljack_roundholes
+LibName17=/home/dwt27/git/skunk/schematics/SO16_WIDER_PADS
+LibName18=/home/dwt27/git/skunk/schematics/arduino_shields
