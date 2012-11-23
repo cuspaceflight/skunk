@@ -1,4 +1,4 @@
-EESchema Schematic File Version 2  date Wed 21 Nov 2012 20:07:56 GMT
+EESchema Schematic File Version 2  date Fri 23 Nov 2012 16:25:52 GMT
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -40,7 +40,7 @@ $Descr A3 16535 11693
 encoding utf-8
 Sheet 1 1
 Title "SKUNK WIRING HARNESS AND SCHEMATIC"
-Date "21 nov 2012"
+Date "23 nov 2012"
 Rev ""
 Comp "CAMBRIDGE UNIVERSITY SPACE FLIGHT - dwt27"
 Comment1 ""
@@ -58,17 +58,9 @@ Wire Wire Line
 Wire Wire Line
 	11200 650  3750 650 
 Wire Wire Line
-	12600 1500 12600 950 
+	12600 1700 14300 1700
 Wire Wire Line
-	12600 950  15050 950 
-Wire Wire Line
-	12600 1700 12800 1700
-Wire Wire Line
-	12800 1700 12800 1150
-Wire Wire Line
-	12800 1150 14050 1150
-Wire Wire Line
-	12600 1800 13000 1800
+	12600 1800 14400 1800
 Wire Notes Line
 	600  7650 12050 7650
 Wire Notes Line
@@ -197,8 +189,6 @@ Wire Wire Line
 	15050 1550 14500 1550
 Wire Wire Line
 	15050 1450 14400 1450
-Wire Wire Line
-	15050 1250 14050 1250
 Wire Wire Line
 	4100 750  3550 750 
 Wire Wire Line
@@ -513,9 +503,7 @@ Connection ~ 14900 10000
 Connection ~ 14700 9300
 Connection ~ 14700 9800
 Wire Wire Line
-	14250 1800 14400 1800
-Wire Wire Line
-	14400 1800 14400 1450
+	14400 1450 14400 1800
 Wire Wire Line
 	5300 9850 6750 9850
 Wire Wire Line
@@ -537,12 +525,6 @@ Wire Wire Line
 Wire Wire Line
 	1200 1150 1000 1150
 Wire Wire Line
-	13000 1700 12850 1700
-Wire Wire Line
-	12850 1700 12850 1900
-Wire Wire Line
-	12850 1900 13000 1900
-Wire Wire Line
 	6750 10350 4800 10350
 Wire Wire Line
 	6750 8250 4900 8250
@@ -556,10 +538,6 @@ Wire Wire Line
 	5500 9550 6750 9550
 Wire Wire Line
 	6750 9750 5600 9750
-Wire Wire Line
-	14500 1550 14500 2000
-Wire Wire Line
-	14500 2000 14250 2000
 Connection ~ 15050 9300
 Connection ~ 15050 9550
 Connection ~ 15050 9800
@@ -638,8 +616,6 @@ Wire Wire Line
 Wire Wire Line
 	5600 9750 5600 8200
 Wire Wire Line
-	14050 1250 14050 1150
-Wire Wire Line
 	1000 2250 1050 2250
 Wire Wire Line
 	1600 2650 1600 2750
@@ -666,17 +642,9 @@ Wire Notes Line
 Wire Notes Line
 	13050 2550 16000 2550
 Wire Wire Line
-	12600 1900 12800 1900
+	12600 1900 14500 1900
 Wire Wire Line
-	12800 1900 12800 2000
-Wire Wire Line
-	12800 2000 13000 2000
-Wire Wire Line
-	15050 1050 12700 1050
-Wire Wire Line
-	12700 1050 12700 1600
-Wire Wire Line
-	12700 1600 12600 1600
+	12600 1600 14200 1600
 Wire Wire Line
 	4600 750  11100 750 
 Wire Wire Line
@@ -704,6 +672,7 @@ U 1 1 50A91CD4
 P 12200 1700
 F 0 "P6" V 12150 1700 50  0000 C CNN
 F 1 "CONN_ARD_FLOW_F" H 11950 1400 50  0000 C CNN
+F 4 "1462874" V 12200 1700 60  0001 C CNN "Farnell"
 	1    12200 1700
 	-1   0    0    -1  
 $EndComp
@@ -713,6 +682,7 @@ U 1 1 50A91CD0
 P 11950 1700
 F 0 "P5" V 11900 1700 50  0000 C CNN
 F 1 "CONN_ARD_FLOW_M" H 11700 1400 50  0000 C CNN
+F 4 "9731679" V 11950 1700 60  0001 C CNN "Farnell"
 	1    11950 1700
 	1    0    0    -1  
 $EndComp
@@ -756,6 +726,7 @@ U 1 1 50A8F1C9
 P 14550 5150
 F 0 "SHIELD1" H 14150 7650 60  0000 C CNN
 F 1 "ARDUINO_MEGA_SHIELD" H 14450 2450 60  0000 C CNN
+F 4 "1056428,1098454x2" H 14550 5150 60  0001 C CNN "Farnell"
 	1    14550 5150
 	1    0    0    -1  
 $EndComp
@@ -795,7 +766,7 @@ Text Label 2950 2850 0    60   ~ 0
 0V_SENSE
 Text Label 2950 2750 0    60   ~ 0
 0V
-Text Label 14100 1250 0    60   ~ 0
+Text Label 14550 1250 0    60   ~ 0
 +16V
 Text Label 13100 8600 0    60   ~ 0
 0V
@@ -990,15 +961,13 @@ F 1 "CONN_ARD_PERIPHS_F" V 5530 7850 60  0000 C CNN
 	1    5450 7850
 	0    -1   -1   0   
 $EndComp
-Text Label 12600 1800 0    60   ~ 0
-RX
-Text Label 14100 1050 0    60   ~ 0
+Text Label 14550 1050 0    60   ~ 0
 0V_SENSE
 Text Label 14550 1450 0    60   ~ 0
 RX
 Text Label 14550 1550 0    60   ~ 0
 TX
-Text Label 14100 950  0    60   ~ 0
+Text Label 14550 950  0    60   ~ 0
 0V
 Text Label 2150 4400 0    60   ~ 0
 +12V
@@ -1010,26 +979,6 @@ F 0 "J1" H 15500 1700 70  0000 C CNN
 F 1 "DB9_FLOWMETER_F" H 15400 600 70  0000 C CNN
 	1    15500 1150
 	1    0    0    -1  
-$EndComp
-Text Label 12600 1900 0    60   ~ 0
-TX
-$Comp
-L DB9 J2
-U 1 1 50636112
-P 13450 1800
-F 0 "J2" H 13450 2350 70  0000 C CNN
-F 1 "DB9_ARD_BOX_M" H 13150 1200 70  0000 C CNN
-	1    13450 1800
-	1    0    0    -1  
-$EndComp
-$Comp
-L DB9 J3
-U 1 1 506360FD
-P 13800 1800
-F 0 "J3" H 13800 2350 70  0000 C CNN
-F 1 "DB9_ARD_BOX_F" H 13500 1200 70  0000 C CNN
-	1    13800 1800
-	-1   0    0    -1  
 $EndComp
 $Comp
 L GND #PWR01
@@ -1548,4 +1497,20 @@ F 1 "CONN_1" H 1550 9955 30  0001 C CNN
 	1    1550 9900
 	1    0    0    -1  
 $EndComp
+Wire Wire Line
+	14500 1900 14500 1550
+Wire Wire Line
+	15050 1250 14300 1250
+Wire Wire Line
+	14300 1250 14300 1700
+Wire Wire Line
+	15050 1050 14200 1050
+Wire Wire Line
+	14200 1050 14200 1600
+Wire Wire Line
+	15050 950  14100 950 
+Wire Wire Line
+	14100 950  14100 1500
+Wire Wire Line
+	14100 1500 12600 1500
 $EndSCHEMATC
