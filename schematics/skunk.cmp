@@ -1,4 +1,4 @@
-Cmp-Mod V01 Created by CvPcb (2012-oct-18)-testing date = Fri 23 Nov 2012 15:08:19 GMT
+Cmp-Mod V01 Created by CvPcb (2012-oct-18)-testing date = Fri 23 Nov 2012 17:23:00 GMT
 
 BeginCmp
 TimeStamp = /5063529A;
@@ -200,7 +200,7 @@ BeginCmp
 TimeStamp = /50A91CD0;
 Reference = P5;
 ValeurCmp = CONN_ARD_FLOW_M;
-IdModule  = SIL-5;
+IdModule  = SIL-5_MOLEX;
 EndCmp
 
 BeginCmp
