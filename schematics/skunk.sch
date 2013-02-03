@@ -1,4 +1,4 @@
-EESchema Schematic File Version 2  date Fri 23 Nov 2012 17:15:50 GMT
+EESchema Schematic File Version 2  date Sun 03 Feb 2013 17:07:02 GMT
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -40,7 +40,7 @@ $Descr A3 16535 11693
 encoding utf-8
 Sheet 1 1
 Title "SKUNK WIRING HARNESS AND SCHEMATIC"
-Date "23 nov 2012"
+Date "3 feb 2013"
 Rev ""
 Comp "CAMBRIDGE UNIVERSITY SPACE FLIGHT - dwt27"
 Comment1 ""
@@ -693,15 +693,15 @@ BATT_IN
 Text Label 15450 6750 0    60   ~ 0
 C3
 Text Label 15450 6850 0    60   ~ 0
-C2
-Text Label 15450 6950 0    60   ~ 0
 C1
+Text Label 15450 6950 0    60   ~ 0
+C2
 Text Label 15450 7050 0    60   ~ 0
 R4
 Text Label 15450 7150 0    60   ~ 0
-R3
-Text Label 15450 7250 0    60   ~ 0
 R2
+Text Label 15450 7250 0    60   ~ 0
+R3
 Text Label 15450 7350 0    60   ~ 0
 R1
 Text Label 15450 3900 0    60   ~ 0
@@ -1157,15 +1157,15 @@ KEYSW_IN
 Text Label 7500 4400 0    60   ~ 0
 R1
 Text Label 7500 4500 0    60   ~ 0
-R2
-Text Label 7500 4600 0    60   ~ 0
 R3
+Text Label 7500 4600 0    60   ~ 0
+R2
 Text Label 7500 4700 0    60   ~ 0
 R4
 Text Label 7500 4800 0    60   ~ 0
-C1
-Text Label 7500 4900 0    60   ~ 0
 C2
+Text Label 7500 4900 0    60   ~ 0
+C1
 Text Label 7500 5000 0    60   ~ 0
 C3
 $Comp
