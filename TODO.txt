@@ -1,7 +1,4 @@
 o Test peripherals:
-	o Keypad
-	o Keyswitch
 	o Flowknob
-	o Piezo
 
 o Test wiring rig and flowmeter etc.
