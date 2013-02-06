@@ -1,0 +1,9 @@
+o Test peripherals:
+	o Keypad
+	o Keyswitch
+	o Flowknob
+	o Piezo
+
+o Make up flowmeter/RS232 connector
+o Remake wiring rig stuff
+o Test wiring rig and flowmeter etc.
