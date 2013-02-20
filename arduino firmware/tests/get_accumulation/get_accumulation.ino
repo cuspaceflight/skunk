@@ -56,8 +56,6 @@ void setup()
 
 void loop()
 {
-  char message[128];
-  char buffer[128];
   float accumulation=-1.0;
 
   setvalve(0);
@@ -126,7 +124,6 @@ void setvalve(int percentageopen)
 
   if(rescale > 0x7D00)
     rescale=0x0000; // Default closed;
-
 
   sprintf(message, ":0680020121%04X\r\n", rescale); // Valve close, 0x0000
   Serial1.print(message);
