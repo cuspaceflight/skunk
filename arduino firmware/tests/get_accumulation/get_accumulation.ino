@@ -19,7 +19,12 @@ void setup()
   pinMode(3, INPUT);   // LCD software serial pins
   pinMode(7, OUTPUT);
 
-  delay(2000); // Wait for the flowmeter (and LCD) to warm up
+  delay(1000); // Wait for the LCD to wake up
+  lcdclear();
+  serLCD.write("SKUNK! TestProg:");
+  serLCD.write("get_accumulation");
+
+  delay(1000); // Wait for the flowmeter to wake up
 
   // Init stuff:
   Serial1.print(":050001000A49\r\n");
@@ -49,7 +54,8 @@ void setup()
   // set to 0.0 = 0x00000000 (4 byte float)
   Serial1.print(":088002684100000000\r\n");
   
-  // Blank out the LCD:
+  delay(2000); // Display the splash a bit more.
+  // Blank out the LCD.  Splash displayed for 4s
   lcdclear();
 }
 
