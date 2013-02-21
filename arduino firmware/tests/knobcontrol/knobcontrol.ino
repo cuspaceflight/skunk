@@ -117,7 +117,7 @@ void setvalve(int percentageopen)
     rescale=0x0000; // Default closed;
 
 
-  sprintf(message, ":0680020121%04X\r\n", rescale); // Valve close, 0x0000
+  sprintf(message, ":0680020121%04X\r\n", rescale);
   Serial1.print(message);
 }
 
@@ -125,7 +125,7 @@ float getaccumulation()
 {
 	char buffer[128];
 
-	// First clear our read buffer:
+	// First clear our read buffer, so we can read just the returned line.
 	while(Serial1.read() != -1);
 
 	// Send read counter command:       
