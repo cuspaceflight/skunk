@@ -65,10 +65,10 @@ void setup()
 void loop()
 {
   float accumulation=-1.0;
-  unsigned int knob = analogRead(flowknob)*100/1024;
+  int knob = analogRead(flowknob)*100.0/1024.0;
   char knobtext[4];
 
-  sprintf(knobtext, "%03u", knob);
+  sprintf(knobtext, "%03i", knob);
 
   setvalve(knob);
   lcdclear();
@@ -116,7 +116,7 @@ void setvalve(int percentageopen)
 {
   char message[32];
   // Scale the open-ness from 0-100 to 0x0000-0x7D00
-  unsigned int rescale = 0x7D00 * percentageopen/100;
+  int rescale = 0x7D00 * percentageopen/100;
   char setpoint[5];
 
   if(rescale > 0x7D00)
