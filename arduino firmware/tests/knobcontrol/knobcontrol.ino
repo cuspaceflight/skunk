@@ -71,7 +71,7 @@ void loop()
   sprintf(knobtext, "%03i", knob);
 
   setvalve(knob);
-  lcdclear();
+  lcdorigin();
   serLCD.write("valve set ");
   serLCD.write(knobtext);
   serLCD.write("%  "); // Should take us to the end of the line
