@@ -1,13 +1,12 @@
-#include <KeypadDriver.h>
-#include <Arduino.h>
+#include "KeypadDriver.h"
 
-#define R1 37
-#define R2 35
-#define R3 36
-#define R4 34
-#define C1 32
-#define C2 33
-#define C3 31
+#define R1  37
+#define R2  35
+#define R3  36
+#define R4  34
+#define C1  32
+#define C2  33
+#define C3  31
 
 void keypad_setup(){
   pinMode(R1, OUTPUT);
