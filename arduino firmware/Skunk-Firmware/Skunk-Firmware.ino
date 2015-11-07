@@ -1,4 +1,4 @@
-#include <SoftwareSerial.h> // This has to be included here as Arduino won't give the libarary PATH to .h files, only .ino files
+#include <SoftwareSerial.h> // This has to be included here as Arduino won't give the library PATH to .h files, only .ino files
 
 #include "SkunkPindefs.h"
 
@@ -6,28 +6,27 @@
 #include "KeySwitchDriver.h"
 #include "PiezoDriver.h"
 #include "KnobDriver.h"
-#include "serLCD.h"
-
-serLCD lcd(PIN_LCD);
+#include "UserInterface.h"
+#include "FlowmeterDriver.h"
 
 void setup(){
   keypad_setup();
   keyswitch_setup();
   piezo_setup();
   knob_setup();
+  flowmeter_setup();
   
-  lcd.clear();
-  lcd.write("HELLO");
-  lcd.selectLine(2);
-  lcd.write("WORLD");
+  delay(1000); // Wait for LCD to boot up
+
+  ui_reset();
 }
 
 void loop(){
   char c = keypad_get_key_pressed();
   
   if(c>-1){
-    lcd.setCursor(1,1);
-    lcd.write(c);
+    ui_lcd()->setCursor(1,1);
+    ui_lcd()->write(c);
   }
   
   if( keyswitch_on() || (knob_get_percent() > 50) || (c == '5') ){
