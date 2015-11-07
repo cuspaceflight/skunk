@@ -1,12 +1,14 @@
 #include <SoftwareSerial.h> // This has to be included here as Arduino won't give the libarary PATH to .h files, only .ino files
 
+#include "SkunkPindefs.h"
+
 #include "KeypadDriver.h"
 #include "KeySwitchDriver.h"
 #include "PiezoDriver.h"
 #include "KnobDriver.h"
 #include "serLCD.h"
 
-serLCD lcd(7);
+serLCD lcd(PIN_LCD);
 
 void setup(){
   keypad_setup();

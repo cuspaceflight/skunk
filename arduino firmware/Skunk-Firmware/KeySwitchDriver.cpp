@@ -1,11 +1,10 @@
+#include "SkunkPinDefs.h"
 #include "KeySwitchDriver.h"
 
-#define KEYSW  5
-
 void keyswitch_setup(){
-  pinMode(KEYSW, INPUT);
+  pinMode(PIN_KEYSW, INPUT);
 }
 
 boolean keyswitch_on(){
-  return digitalRead(KEYSW) == HIGH;
+  return digitalRead(PIN_KEYSW) == HIGH;
 }

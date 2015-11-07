@@ -1,13 +1,12 @@
+#include "SkunkPinDefs.h"
 #include "KnobDriver.h"
 
-#define KNOB  A0
-
 void knob_setup(){
-  // Nothing here
+  // Nothing here, but kept for consistency
 }
 
 unsigned int knob_get_raw_value(){
-  return analogRead(KNOB);
+  return analogRead(PIN_KNOB);
 }
 
 unsigned int knob_get_percent(){

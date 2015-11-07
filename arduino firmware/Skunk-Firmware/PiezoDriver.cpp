@@ -1,13 +1,12 @@
+#include "SkunkPinDefs.h"
 #include "PiezoDriver.h"
 
-#define PIEZO  30
-
 void piezo_setup(){
-  pinMode(PIEZO, OUTPUT);
+  pinMode(PIN_PIEZO, OUTPUT);
 }
 
 void piezo_set(boolean bOn){
-  digitalWrite(PIEZO, bOn);
+  digitalWrite(PIN_PIEZO, bOn);
 }
 
 void piezo_on(){
