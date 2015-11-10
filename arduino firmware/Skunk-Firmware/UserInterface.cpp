@@ -1,4 +1,4 @@
-
+/*
 //#define PC
 #define ARDUINO
 //#define LINUX 
@@ -20,13 +20,19 @@
 //#include <serLCD.h> // These are the libraries for the LCD, providing various standard functions.
 #endif
 
+*/
 
-#include "SkunkPindefs.h"
+
+#include "SkunkPinDefs.h"
 #include "UserInterface.h"
 #include "KeyPadDriver.h"
 #include "serLCD.h"
 #include <Arduino.h>
 
+
+
+#define KEYPAD_CONFIRM '#'
+#define KEYPAD_RETURN '*'
 
 serLCD lcd(PIN_LCD);
 
@@ -50,6 +56,8 @@ void ui_reset(){
   lcd.setBrightness(backlightLevel);
 }
 
+
+
 void stateMachine()
 {
   // Main program loop
@@ -61,31 +69,35 @@ void stateMachine()
       settings();
       break;
     case FILL:
-      fill();
+    //  fill();
       break;
     case FILL_ENTER:
-     fillEnter(); // Set target amount to fillEnter value
+    // fillEnter(); // Set target amount to fillEnter value
      break;
     case FILL_CONFIRM:
-      fillConfirm();
+     // fillConfirm();
       break;
     case FILL_PROGRESS:
-      fillProgress();
+    //  fillProgress();
       break;
     case FILL_DONE:
-      fillDone();
+     // fillDone();
       break;
     case BACKLIGHT_ENTER:
-      backlightEnter();
+     // backlightEnter();
       break;
     case BACKLIGHT_DONE:
-      backlightDone();
+     // backlightDone();
       break;
     default:
       changeState(MAIN_MENU); // If for some reason state variable is unset (which should never ever happen) go back to MAIN_MENU!
       break;
   } 
 }  
+ 
+ 
+
+
  
 
 void mainMenu() 
@@ -146,13 +158,13 @@ void settings() {
 			}
 		} else {
 			if(!displayed) {
-				display("Options:","1-Menu 2-BL");
+				display("Options:","1-BackLight");
 				displayed = true;
 			}
 		}
 	} else {
 		if(!displayed) {
-			display("Options:","1-Menu 2-BL");
+			display("Options:","1-BackLight");
 			displayed = true;
 		}
 		updateGlobalTimer();
@@ -160,7 +172,112 @@ void settings() {
 	}
 }
 
-    
+void fill() {
+	if(globalTimer > 500) { // If been on screen for more that 0.5 s
+		keypadInput = -1;
+		keypadInput = keypad_get_key_pressed();
+		if(keypadInput != -1) {
+			switch(keypadInput) {
+				case 1:
+					changeState(MAIN_MENU);
+					break;	
+				case 2:
+					changeState(FILL_ENTER);
+					break;
+				default:
+					if(!displayed) {
+						display("Fill:","1-Amount");
+						displayed = true;
+					}
+					break;
+			}
+		} else {
+			if(!displayed) {
+				display("Fill:","1-Amount");
+				displayed = true;
+			}
+		}
+	} else {
+		updateGlobalTimer();
+		keypadInput = -1; // Ensures it is set to -1 
+		if(!displayed) {
+			display("Fill:","1-Amount");
+			displayed = true;
+		}
+	}
+}    
+
+/*
+void fillConfirm() {
+//	stringstream ss;
+//	ss << "Fill " << targetAmount;
+	string l1 = ss.str().substring(0,16);
+	display(l1, "*-Return #-Yes");
+	if(globalTimer > 500) { // If been on screen for more that 0.5 s
+	keypadInput = -1;
+	keypadInput = keypad_get_key_pressed();
+		if(keypadInput != -1) {
+			switch(keypadInput) {
+				case 1:
+					changeState(MAIN_MENU);
+					break;	
+				case 2:
+					changeState(FILL_PROGRESS);
+					break;
+				default:
+					if(!displayed) {
+						display(l1, "*-Return #-Yes");
+						displayed = true;
+					}
+					break;
+			}
+		} else {
+				if(!displayed) {
+					display(l1, "*-Return #-Yes");
+					displayed = true;
+				}		
+		}
+	} else {
+		updateGlobalTimer();
+		keypadInput = -1; // Ensures it is set to -1 
+		if(!displayed) {
+			display(l1, "1-Menu 2-Yes");
+			displayed = true;
+		}
+	}
+
+}
+*/
+
+
+/*
+int fillEnter() {
+	// Should work for both arduino and standard :)
+	int targetAmount = 0;
+	//stringstream ss;
+	//ss << amount;
+	//display("Fill amount:",ss.str().substr(0,16));
+	int i = 0;
+	while(true) { // 10 means not a number from 1-9 => enter, etc
+		i = getKeypadInput();
+		if(i > 9) {
+			break;
+		} else {
+			amount *= 10;
+			amount += i;
+			ss.str("");
+			ss << amount;
+			#ifdef ARDUINO
+			display("",ss.str().substr(0,16));
+			#else
+			display("Fill amount:",ss.str().substr(0,16));
+			#endif
+		}
+	}
+	return amount;
+}
+*/
+
 
 
 void changeState(state_mode_t newstate){
