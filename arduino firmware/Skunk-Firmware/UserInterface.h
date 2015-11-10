@@ -3,8 +3,30 @@
 
 #include "serLCD.h"
 
+enum state_mode_t{MAIN_MENU,SETTINGS,FILL, TEST, FILL_ENTER,FILL_CONFIRM,FILL_PROGRESS,FILL_DONE,BACKLIGHT_ENTER,BACKLIGHT_DONE};
+
+
+
 void ui_reset();
 
 serLCD *ui_lcd();
+
+/* Functions depending on your current state*/
+void mainMenu(); 
+void settings();
+
+void fill();	//Filling functions
+int fillEnter();
+void fillConfirm();
+void fillProgress();
+void fillDone();
+
+void backlightEnter(); // Backlight controls
+void backlightDone();
+
+void changeState(state_mode_t newstate);
+
+
+
 
 #endif
