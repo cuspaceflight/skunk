@@ -11,6 +11,8 @@ void ui_reset();
 
 serLCD *ui_lcd();
 
+
+void stateMachine();
 /* Functions depending on your current state*/
 void mainMenu(); 
 void settings();
@@ -26,7 +28,8 @@ void backlightDone();
 
 void changeState(state_mode_t newstate);
 
-
+void display(String l1, String l2);
+void updateGlobalTimer(); // Return difference between current time and last time
 
 
 #endif
