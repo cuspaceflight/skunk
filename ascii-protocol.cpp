@@ -12,7 +12,7 @@
 // node: 00
 // data: 01 00 0A 49
 
-#include <iomanip>
+#include <SoftwareSerial.h>
 
 enum flowmeter_command {
     STATUS                   = 0x00,
@@ -20,32 +20,38 @@ enum flowmeter_command {
     SEND_DESTINATION         = 0x02,
     SEND_SOURCE              = 0x03,
     REQUEST                  = 0x04,
-    REPEAT                   = 0x05,
+    REPEAT_PROCESS           = 0x05,
     STOP_PROCESS             = 0x06,
     START_PROCESS            = 0x07,
     CLAIM_PROCESS            = 0x08,
     UNCLAIM_PROCESS          = 0x09
-}
+};
 
-enum parameter_type {
-    CHARACTER     = 0x00,
-    INTEGER       = 0x20,
-    FLOAT_OR_LONG = 0x40,
-    STRING        = 0x60
-}
+const short PARAMETER_CHARACTER     = 0x00;
+const short PARAMETER_INTEGER       = 0x20;
+const short PARAMETER_FLOAT_OR_LONG = 0x40;
+const short PARAMETER_STRING        = 0x60;
+
+// Declare things
+String num_to_hex(short w, short hex_len);
+String createMessage(short node, String data);
+void initialiseFlowmeter(SoftwareSerial flowmeter);
+String sendParameterData(short processNumber, short parameterType, short parameterNumber, String data);
+String sendChar(short processNumber, short parameterNumber, char data);
+String sendInt(short processNumber, short parameterNumber, int data);
+String sendFloat(short processNumber, short parameterNumber, float data);
+String sendLong(short processNumber, short parameterNumber, long data);
+String sendString(short processNumber, short parameterNumber, String data);
 
 /**
- * Converts the specified short to a set length hex string
+ * Converts the specified number to a set length hex string
  */
-std::string int_to_hex(int i, short width) {
-    // std::stringstream stream;
-//     stream << std::setfill('0') // fill with zero
-//            << std::setw(width)  // hard coded to width of 2
-//            << std::hex << i;
-    
-    // rewrite?
-    
-    return stream.str();
+String num_to_hex(short w, short hex_len) {
+    static const String digits = "0123456789ABCDEF";
+    String rc(hex_len,'0');
+    for (size_t i=0, j=(hex_len-1)*4 ; i<hex_len; ++i,j-=4)
+        rc[i] = digits[(w>>j) & 0x0f];
+    return rc;
 }
 
 /**
@@ -53,16 +59,18 @@ std::string int_to_hex(int i, short width) {
  * Node/Port
  * Data in Hexadecimal string
  */
-std::string createMessage(short node, std::string data) {
+String createMessage(short node, String data) {
     
-    short length = 1 + strlen(data) / 2; // length of data
+    short length = 1 + data.length() / 2; // length of data
     
-    stringstream ss;
-    ss << ':' // start of message
-       << int_to_hex(length, 2) << int_to_hex(node, 2) << data 
-       << "\r\n"; /// end of message
+    String ss;
+    ss = ":" // start of message
+       + num_to_hex(length, 2)
+       + num_to_hex(node, 2)
+       + data
+       + "\r\n"; /// end of message
     
-    return ss.str();
+    return ss;
 }
 
 /**
@@ -89,57 +97,57 @@ void initialiseFlowmeter(SoftwareSerial flowmeter) {
  * parameterNumber - the parameter
  * data - string data to send
  */
-std::string sendParameterData(
+String sendParameterData(
     short processNumber,
-    parameter_type parameterType,
+    short parameterType,
     short parameterNumber,
-    std::string data
+    String data
 ) {
-    if (parameter_number > 31) {
+    if (parameterNumber > 31) {
         // ERROR, parameter_number must be 31 or less.
         return "";
     }
     
-    flowmeter_command command = SEND_DESTINATION_CONFIRM;
+    enum flowmeter_command command = SEND_DESTINATION_CONFIRM;
     short parameter_data = parameterType + parameterNumber;
     
-    std::stringstream stream;
-    stream << int_to_hex(command, 2)
-           << int_to_hex(processNumber, 2)
-           << int_to_hex(parameter_data, 2)
-           << data;
-    return stream.str();
+    String ss;
+    ss = num_to_hex(command, 2)
+       + num_to_hex(processNumber, 2)
+       + num_to_hex(parameter_data, 2)
+       + data;
+    return ss;
 }
 
-std::string sendChar(short processNumber, short parameterNumber, char data) {
-    std::string dataString = int_to_hex(data, 2);
+String sendChar(short processNumber, short parameterNumber, char data) {
+    String dataString = num_to_hex(data, 2);
     
-    return sendParameterData(processNumber, CHARACTER, parameterNumber, dataString);
+    return sendParameterData(processNumber, PARAMETER_CHARACTER, parameterNumber, dataString);
 }
 
 /**
  * Send an integer value
  */
-std::string sendInt(short processNumber, short parameterNumber, int data) {
-    std::string dataString = int_to_hex(data, 4);
+String sendInt(short processNumber, short parameterNumber, int data) {
+    String dataString = num_to_hex(data, 4);
     
-    return sendParameterData(processNumber, INTEGER, parameterNumber, dataString);
+    return sendParameterData(processNumber, PARAMETER_INTEGER, parameterNumber, dataString);
 }
 
-std::string sendFloat(short processNumber, short parameterNumber, float data) {
+String sendFloat(short processNumber, short parameterNumber, float data) {
     // Dangerous stuff
-    int* q = (int*)&data;
-    std::string dataString = int_to_hex(q, 4);
+    short* q = (short*)&data;
+    String dataString = num_to_hex(*q, 4);
     
-    return sendParameterData(processNumber, FLOAT_OR_LONG, parameterNumber, dataString);
+    return sendParameterData(processNumber, PARAMETER_FLOAT_OR_LONG, parameterNumber, dataString);
 }
 
-std::string sendLong(short processNumber, short parameterNumber, long data) {
-    std::string dataString = int_to_hex(data, 4);
+String sendLong(short processNumber, short parameterNumber, long data) {
+    String dataString = num_to_hex(data, 4);
     
-    return sendParameterData(processNumber, FLOAT_OR_LONG, parameterNumber, dataString);
+    return sendParameterData(processNumber, PARAMETER_FLOAT_OR_LONG, parameterNumber, dataString);
 }
 
-std::string sendString(short processNumber, short parameterNumber, std::string data) {
+String sendString(short processNumber, short parameterNumber, String data) {
     // TODO: Implement
 }
