@@ -1,6 +1,6 @@
 #!/usr/bin/python
 '''
-Flowmeter simulator for testing Skunk
+Hideously over-engineered Flowmeter simulator for testing Skunk
 
 Listens for serial commands from Skunk and replies with some spoofed data.
 
