@@ -17,4 +17,6 @@
 #define PIN_C2  33
 #define PIN_C3  31
 
+#define FLOW_SERIAL Serial1
+
 #endif

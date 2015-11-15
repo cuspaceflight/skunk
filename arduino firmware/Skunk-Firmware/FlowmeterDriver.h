@@ -2,7 +2,7 @@
 #define FLOWMETERDRIVER_H
 
 #include <Arduino.h>
-#include <SoftwareSerial.h>
+#include "SkunkPinDefs.h"
 
 enum flowmeter_command {
     STATUS                   = 0x00,
@@ -24,26 +24,29 @@ const short PARAMETER_STRING        = 0x60;
 
 // PUBLIC
 
-void initialiseFlowmeter(SoftwareSerial flowmeter);
-void setupValveControl(SoftwareSerial flowmeter);
-float getAccumulation(SoftwareSerial flowmeter);
-void setValve(SoftwareSerial flowmeter, unsigned short percentageOpen);
+void flowmeter_setup();
+void flowmeter_setup_valve_control();
+float flowmeter_get_accumulation();
+void flowmeter_set_valve(unsigned short percentageOpen);
+
+void flowmeter_start_flow();
+void flowmeter_stop_flow();
 
 // PRIVATE
 
 float getFloatFromResponse(String ss);
-String num_to_hex(short w, short hex_len);
+void num_to_hex(short w, short hex_len, char data[]);
 
-String createMessage(short node, String data);
+void sendMessage(short node, String data);
 
-String sendParameterData(short processNumber, short paramType, short paramNumber, String data);
-String requestParameterData(short processNumber, short paramType, short paramNumber);
+void sendParameterData(short processNumber, short paramType, short paramNumber, String data, char buf[], int buflen);
+void requestParameterData(short processNumber, short paramType, short paramNumber, char buf[], int buflen);
 
-String sendChar(short processNumber, short parameterNumber, char data);
-String sendInt(short processNumber, short parameterNumber, int data);
-String sendFloat(short processNumber, short parameterNumber, float data);
-String requestFloat(short processNumber, short parameterNumber);
-String sendLong(short processNumber, short parameterNumber, long data);
-String sendString(short processNumber, short parameterNumber, String data);
+void sendChar(short processNumber, short parameterNumber, char data, char buf[], int buflen);
+void sendInt(short processNumber, short parameterNumber, int data, char buf[], int buflen);
+void sendFloat(short processNumber, short parameterNumber, float data, char buf[], int buflen);
+void requestFloat(short processNumber, short parameterNumber, char buf[], int buflen);
+void sendLong(short processNumber, short parameterNumber, long data, char buf[], int buflen);
+void sendString(short processNumber, short parameterNumber, String data, char buf[], int buflen);
 
 #endif

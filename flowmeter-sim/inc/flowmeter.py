@@ -9,6 +9,7 @@ class FlowMeter:
 		self.sec_node_num = 0
 		self.next_node_num = 0
 		self.last_node_num = 255
+		self.accumulation = 0.0
 		## these numbers taken from the Flowmeter-RS232 spec document
 		self.processes = {
 				0: ConfigurationProcess(self),
@@ -48,12 +49,12 @@ class FlowMeter:
 		line = line[1:].strip() # trim starting colon and newline
 		bs = bytes([int(line[i:i+2], 16) for i in range(0,len(line),2)]) # get chars in pairs and read as hex int
 		length = bs[0]
+		if len(bs) != length+1:
+			print(" Got packet with invalid length: %s" % line)
+			return
 		node = bs[1]
 		if node!=128 and node!=self.pri_node_num:
 			print(" Command not addressed to me (Sent to node %d, I'm node %d)" % (node, self.pri_node_num))
-			return
-		if len(bs) != length+1:
-			print(" Got packet with invalid length: %s" % line)
 			return
 		command = bs[2]
 		if command==0x00:

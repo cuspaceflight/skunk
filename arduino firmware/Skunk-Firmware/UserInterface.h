@@ -6,6 +6,7 @@
 
 
 enum state_mode_t {
+  SPLASH,
 	MAIN_MENU,
 	SETTINGS,
 	FILL, 
@@ -14,6 +15,7 @@ enum state_mode_t {
 	FILL_CONFIRM,
 	FILL_PROGRESS,
 	FILL_DONE,
+  FLOW_ERROR,
 	BACKLIGHT_ENTER,
 	BACKLIGHT_DONE
 };
@@ -27,14 +29,17 @@ serLCD *ui_lcd();
 
 void stateMachine();
 /* Functions depending on your current state*/
+void showSplash();
 void mainMenu(); 
 void settings();
 
 void fill();	//Filling functions
-int fillEnter();
+void fillEnter();
 void fillConfirm();
 void fillProgress();
 void fillDone();
+
+void flowError();
 
 void backlightEnter(); // Backlight controls
 void backlightDone();

@@ -13,6 +13,7 @@ import sys
 from construct import *
 import serial
 import struct
+import time
 
 sys.path.insert(0, "./inc")
 
@@ -32,7 +33,6 @@ if len(sys.argv)<2:
 portname = sys.argv[1]
 
 if len(sys.argv)>2:
-	print(sys.argv[2])
 	if sys.argv[2] == "--verbose":
 		debug.VERBOSE = True
 
@@ -46,17 +46,23 @@ debug.debug_print("... in VERBOSE mode")
 print("\nI'm listening on port %s, and responding as node number %d (%s)\n" % (portname, meter.pri_node_num, '0x{:02x}'.format(meter.pri_node_num)))
 
 def main():
-	#while True:
-		#meter.process(port.readline())
+	while True:
+		line = port.readline()
+		print(line)
+		meter.process(line.decode("ascii"))
+		time.sleep(0.1)
 		#meter.process(":0880026841AABBCCDD\r\n") # accumulator
 		#meter.process(":06800468416841\r\n")  # get accumulator
-		meter.process(":050001000A49\r\n")
-		meter.process(":050001000101\r\n")
-		meter.process(":05000100027F\r\n")
-		meter.process(":050001000302\r\n")
-		meter.process(":050001000420\r\n")
-		meter.process(":050001000502\r\n")
-		meter.process(":050001000A52\r\n")
+		#meter.process(":050001000A49\r\n")
+		#meter.process(":050001000101\r\n")
+		#meter.process(":05000100027F\r\n")
+		#meter.process(":050001000302\r\n")
+		#meter.process(":050001000420\r\n")
+		#meter.process(":050001000502\r\n")
+		#meter.process(":050001000A52\r\n")
+		#meter.process(":06800101210C80\r\n")
+		#meter.process(":06800101210000\r\n")
+		#meter.process(":06800101217D00\r\n")
 
 if __name__ == "__main__":
 	main()

@@ -16,3 +16,10 @@ void piezo_on(){
 void piezo_off(){
   piezo_set(false);
 }
+
+void piezo_beep(int ms){
+  piezo_on();
+  delay(ms);
+  piezo_off();
+}
+

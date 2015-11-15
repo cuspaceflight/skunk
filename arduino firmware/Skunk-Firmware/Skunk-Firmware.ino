@@ -8,19 +8,17 @@
 #include "UserInterface.h"
 #include "FlowmeterDriver.h"
 
-SoftwareSerial flowmeter(3, PIN_LCD); // pin 7 = TX, pin 3 = RX (unused)
-
-
 void setup(){
+  Serial.begin(38400);
   keypad_setup();
   keyswitch_setup();
   piezo_setup();
   knob_setup();
-  initialiseFlowmeter(flowmeter);
-  
-  delay(1000); // Wait for LCD to boot up
 
   ui_reset();
+  showSplash();
+  
+  flowmeter_setup();
 }
 
 

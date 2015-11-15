@@ -1,5 +1,6 @@
 from debug import debug_print
 from packets import *
+import struct
 
 class Process:
 	def __init__(self, meter):
@@ -68,14 +69,43 @@ class ControlProcess(Process):
 	def send_param(self, pac, sendStatus=False):
 		Process.send_param(self, pac, sendStatus)
 		result = True
+		## read the data
+		data,data2 = self.meter.read_data(pac.type, pac.data)
+		if pac.type!="LONG":
+			debug_print("  Data: (%s) %s, RAW: %s" % (pac.type, data, data2))
+		else:
+			debug_print("  Data: (LONG) %d or (FLOAT) %f" % (data, data2))
+		## deal with packet contents
+		if pac.param==1 and pac.type=="INT": # Setpoint (valve control)
+			print("->SET VALVE TO %d / 32000 (%d%%)" % (data, (data/32000.0)*100))
+		else:
+			result = False
+		## send status if we need to
+		if sendStatus:
+			self.meter.send_packet(Status.build(Container(length=4,node=pac.node,status='NO_ERROR',index=0)))
+		return result
 
 class CounterProcess(Process):
 	def __init__(self, meter):
 		Process.__init__(self, meter)
 	
+	def send_accumulation(self, req_pac, val):
+		print("> Sending accumulation value %f..." % val)
+		packed_float = struct.pack('>f', val)
+		packet = SendParamNoStatus.build(Container(
+					length = 8,
+					node = req_pac.node,
+					process_number = req_pac.process_number,
+					type = req_pac.type,
+					param = req_pac.param,
+					data = packed_float
+				))
+		self.meter.send_packet(packet)
+		self.meter.accumulation += 0.51
+	
 	def req_param(self, pac):
 		Process.req_param(self, pac)
 		if pac.param==1 and pac.type=='LONG': # get accumulation
-			send_accumulation(pac, 1.00)
+			self.send_accumulation(pac, self.meter.accumulation)
 			return True
 		return False
