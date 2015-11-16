@@ -85,6 +85,8 @@ void stateMachine()
     case FILL_ENTER:
       fillEnter();
       break;
+	case RESET_CONFIRM:
+	  resetConfirm();
     case FILL_CONFIRM:
       fillConfirm();
       break;
@@ -205,16 +207,20 @@ void fill() {
         case '1':
           changeState(FILL_ENTER);
           break;
+		case '2':
+		  changeState(RESET_CONFIRM);
+		  break;
+		  
         default:
           if (!displayed) {
-            display("Fill:", "1-Amount");
+            display("Fill:", "1-Amount 2-Reset");
             displayed = true;
           }
           break;
       }
     } else {
       if (!displayed) {
-        display("Fill:", "1-Amount");
+        display("Fill:", "1-Amount 2-Reset");
         displayed = true;
       }
     }
@@ -222,7 +228,7 @@ void fill() {
     updateGlobalTimer();
     keypadInput = -1; // Ensures it is set to -1
     if (!displayed) {
-      display("Fill:", "1-Amount");
+      display("Fill:", "1-Amount 2-Reset");
       displayed = true;
     }
   }
@@ -265,6 +271,52 @@ void fillConfirm() {
   }
 
 }
+
+void resetConfirm() {
+  char tmp[8];
+  //snprintf(tmp, 17, "Reset? (%d)", targetAmount);
+  float last_value = flowmeter_get_accumulation();
+  dtostrf(last_value, 4, 2, tmp);
+  String topLine = "Reset? (" + String(tmp) + ")";
+  
+  
+
+  if (globalTimer > 500) { // If been on screen for more that 0.5 s
+    keypadInput = -1;
+    keypadInput = keypad_get_key_pressed();
+    if (keypadInput != -1) {
+      switch (keypadInput) {
+        case '*':
+          changeState(FILL);
+          break;
+        case '#':
+		  flowmeter_reset_flowcounter();
+          changeState(FILL);
+          break;
+        default:
+          if (!displayed) {
+            display(topLine, "*-Return #-Yes");
+            displayed = true;
+          }
+          break;
+      }
+    } else {
+      if (!displayed) {
+        display(topLine, "*-Return #-Yes");
+        displayed = true;
+      }
+    }
+  } else {
+    updateGlobalTimer();
+    keypadInput = -1; // Ensures it is set to -1
+    if (!displayed) {
+      display(topLine, "*-Return #-Yes");
+      displayed = true;
+    }
+  }
+
+}
+
 
 void fillEnter() {
   long amount = 0;

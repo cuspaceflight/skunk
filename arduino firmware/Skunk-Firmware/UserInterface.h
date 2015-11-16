@@ -17,7 +17,8 @@ enum state_mode_t {
 	FILL_DONE,
   FLOW_ERROR,
 	BACKLIGHT_ENTER,
-	BACKLIGHT_DONE
+	BACKLIGHT_DONE,
+  RESET_CONFIRM
 };
 
 
@@ -38,6 +39,7 @@ void fillEnter();
 void fillConfirm();
 void fillProgress();
 void fillDone();
+void resetConfirm();
 
 void flowError();
 

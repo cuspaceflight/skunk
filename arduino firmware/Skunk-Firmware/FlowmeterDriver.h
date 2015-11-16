@@ -25,9 +25,11 @@ const short PARAMETER_STRING        = 0x60;
 // PUBLIC
 
 void flowmeter_setup();
-void flowmeter_setup_valve_control();
 float flowmeter_get_accumulation();
 void flowmeter_set_valve(unsigned short percentageOpen);
+
+void flowmeter_reset_flowcounter();
+
 
 void flowmeter_start_flow();
 void flowmeter_stop_flow();

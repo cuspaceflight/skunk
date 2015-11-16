@@ -17,12 +17,12 @@ void flowmeter_setup() {
   sendMessage(0x80, "01000420"); // Set last node number to 32
   sendMessage(0x80, "01000502"); // Set bus management to ALWAYS BUSMASTER (0x02)
 
+  
+  
   // RESET
   sendMessage(0x80, "01000A52");
   delay(1000);
-}
 
-void flowmeter_setup_valve_control() {
   // Must change setpoint controlmode
   // Process 01, parameter 04, Character
   // Set to 20 for "valve steering"
@@ -37,12 +37,20 @@ void flowmeter_setup_valve_control() {
   sendChar(0x68, 0x08, 1, tmp, sizeof(tmp));
   sendMessage(0x80, String(tmp));
 
+}
+
+
+void flowmeter_reset_flowcounter()
+{
+  char tmp[20];
   // Then reset counter to zero, i.e.
   // process 104 = 0x68
   // Parameter 1, Float
   // set to 0.0
   sendFloat(0x68, 0x01, 0.0f, tmp, sizeof(tmp));
   sendMessage(0x80, String(tmp));
+	
+	return;
 }
 
 float flowmeter_get_accumulation() {
