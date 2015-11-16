@@ -41,7 +41,7 @@ serLCD lcd(PIN_LCD);
 state_mode_t state = SPLASH;
 
 int keypadInput = -1; // KeypadInput value, set & reused later
-int targetAmount = 0; // Target fill amount
+long targetAmount = 0; // Target fill amount
 float currentProgress = 0; // Current filling progress
 unsigned long long globalTimer = 0; // Global timer variable - gets reset so used for timing from 0 to 1 for example
 unsigned long long timerA = 0, timerB = 0; // Two time keeping variables - don't get reset, used to calculate time difference to update the global timer
@@ -267,7 +267,7 @@ void fillConfirm() {
 }
 
 void fillEnter() {
-  int amount = 0;
+  long amount = 0;
   display("Fill amount:", String(amount, DEC));
   int i = 0;
   while (true) { // 10 means not a number from 1-9 => enter, etc
