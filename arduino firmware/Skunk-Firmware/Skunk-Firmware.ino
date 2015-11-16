@@ -16,7 +16,9 @@ void setup(){
   knob_setup();
 
   ui_reset();
-  showSplash();
+  delay(100); // let the LCD settle
+  
+  showSplash(); // show the splash screen as early as we can
   
   flowmeter_setup();
 }

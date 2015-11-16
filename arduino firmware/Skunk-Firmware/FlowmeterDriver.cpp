@@ -256,10 +256,10 @@ void requestParameterData(short processNumber, short paramType, short paramNumbe
 /**
    Send a char/short value, 1 byte (2 hexes)
 */
-void sendChar(short processNumber, short parameterNumber, char data, char buf[]) {
+void sendChar(short processNumber, short parameterNumber, char data, char buf[], int buflen) {
   char tmp[3];
   num_to_hex(data, 2, tmp);
-  sendParameterData(processNumber, PARAMETER_CHARACTER, parameterNumber, String(tmp), tmp, sizeof(tmp));
+  sendParameterData(processNumber, PARAMETER_CHARACTER, parameterNumber, String(tmp), buf, buflen);
 }
 
 /**

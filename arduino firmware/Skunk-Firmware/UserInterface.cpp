@@ -1,28 +1,3 @@
-/*
-  //#define PC
-  #define ARDUINO
-  //#define LINUX
-  // This is used to choose the system command cls (Windows) or clear (Linux/Bash) when running a simulation.
-
-  #ifdef PC
-  #ifdef ARDUINO
-  #undef ARDUINO // If both PC and ARDUINO have been defined by accident, compile for PC.
-  #endif
-  #endif
-
-  #ifdef PC
-  #include <iostream>
-  #include <ctime>
-  #include <stdlib.h>
-  #endif // Various headers not needed by the Arduino, which would waste space.
-
-  #ifdef ARDUINO
-  //#include <serLCD.h> // These are the libraries for the LCD, providing various standard functions.
-  #endif
-
-*/
-
-
 #include "SkunkPinDefs.h"
 #include "UserInterface.h"
 #include "KeypadDriver.h"
@@ -85,8 +60,9 @@ void stateMachine()
     case FILL_ENTER:
       fillEnter();
       break;
-	case RESET_CONFIRM:
-	  resetConfirm();
+    case RESET_CONFIRM:
+      resetConfirm();
+      break;
     case FILL_CONFIRM:
       fillConfirm();
       break;
@@ -125,6 +101,10 @@ void showSplash() {
 
 void mainMenu()
 {
+  if (!displayed) {
+    display("Skunk 2.0 Menu:", "1-Fill 2-Options");
+    displayed = true;
+  }
   if (globalTimer > 500) { // If been on screen for more that 0.5 s
     keypadInput = -1;
     keypadInput = keypad_get_key_pressed();
@@ -136,24 +116,9 @@ void mainMenu()
         case '2':
           changeState(SETTINGS);
           break;
-        default:
-          if (!displayed) {
-            display("Skunk 2.0 Menu:", "1-Fill 2-Options");
-            displayed = true;
-          }
-          break;
-      }
-    } else {
-      if (!displayed) {
-        display("Skunk 2.0 Menu:", "1-Fill 2-Options");
-        displayed = true;
       }
     }
   } else {
-    if (!displayed) {
-      display("Skunk 2.0 Menu ", "1-Fill 2-Options");
-      displayed = true;
-    }
     updateGlobalTimer();
     keypadInput = -1;
   }
@@ -161,6 +126,10 @@ void mainMenu()
 
 
 void settings() {
+  if (!displayed) {
+    display("Options:", "1-BackLight");
+    displayed = true;
+  }
   if (globalTimer > 500) { // If been on screen for more that 0.5 s
     keypadInput = -1;
     keypadInput = keypad_get_key_pressed();
@@ -172,30 +141,19 @@ void settings() {
         case '1':
           changeState(BACKLIGHT_ENTER);
           break;
-        default:
-          if (!displayed) {
-            display("Options:", "1-Backlight");
-            displayed = true;
-          }
-          break;
-      }
-    } else {
-      if (!displayed) {
-        display("Options:", "1-Backlight");
-        displayed = true;
       }
     }
   } else {
-    if (!displayed) {
-      display("Options:", "1-BackLight");
-      displayed = true;
-    }
     updateGlobalTimer();
     keypadInput = -1; // Ensures it is set to -1
   }
 }
 
 void fill() {
+  if (!displayed) {
+    display("Fill:", "1-Amount 2-Reset");
+    displayed = true;
+  }
   if (globalTimer > 500) { // If been on screen for more that 0.5 s
     keypadInput = -1;
     keypadInput = keypad_get_key_pressed();
@@ -207,36 +165,24 @@ void fill() {
         case '1':
           changeState(FILL_ENTER);
           break;
-		case '2':
-		  changeState(RESET_CONFIRM);
-		  break;
-		  
-        default:
-          if (!displayed) {
-            display("Fill:", "1-Amount 2-Reset");
-            displayed = true;
-          }
+        case '2':
+          changeState(RESET_CONFIRM);
           break;
-      }
-    } else {
-      if (!displayed) {
-        display("Fill:", "1-Amount 2-Reset");
-        displayed = true;
       }
     }
   } else {
     updateGlobalTimer();
     keypadInput = -1; // Ensures it is set to -1
-    if (!displayed) {
-      display("Fill:", "1-Amount 2-Reset");
-      displayed = true;
-    }
   }
 }
 
 void fillConfirm() {
   char tmp[17];
   snprintf(tmp, 17, "Fill %d", targetAmount);
+  if (!displayed) {
+    display(String(tmp), "*-Return #-Yes");
+    displayed = true;
+  }
   if (globalTimer > 500) { // If been on screen for more that 0.5 s
     keypadInput = -1;
     keypadInput = keypad_get_key_pressed();
@@ -248,39 +194,23 @@ void fillConfirm() {
         case '#':
           changeState(FILL_PROGRESS);
           break;
-        default:
-          if (!displayed) {
-            display(String(tmp), "*-Return #-Yes");
-            displayed = true;
-          }
-          break;
-      }
-    } else {
-      if (!displayed) {
-        display(String(tmp), "*-Return #-Yes");
-        displayed = true;
       }
     }
   } else {
     updateGlobalTimer();
     keypadInput = -1; // Ensures it is set to -1
-    if (!displayed) {
-      display(String(tmp), "*-Return #-Yes");
-      displayed = true;
-    }
   }
-
 }
 
 void resetConfirm() {
   char tmp[8];
-  //snprintf(tmp, 17, "Reset? (%d)", targetAmount);
-  float last_value = flowmeter_get_accumulation();
-  dtostrf(last_value, 4, 2, tmp);
-  String topLine = "Reset? (" + String(tmp) + ")";
-  
-  
-
+  if(!displayed){
+    float last_value = flowmeter_get_accumulation();
+    dtostrf(last_value, 4, 2, tmp);
+    String topLine = "Reset? (" + String(tmp) + ")";
+    display(topLine, "*-Return #-Yes");
+    displayed = true;
+  }
   if (globalTimer > 500) { // If been on screen for more that 0.5 s
     keypadInput = -1;
     keypadInput = keypad_get_key_pressed();
@@ -290,31 +220,14 @@ void resetConfirm() {
           changeState(FILL);
           break;
         case '#':
-		  flowmeter_reset_flowcounter();
+          flowmeter_reset_flowcounter();
           changeState(FILL);
           break;
-        default:
-          if (!displayed) {
-            display(topLine, "*-Return #-Yes");
-            displayed = true;
-          }
-          break;
-      }
-    } else {
-      if (!displayed) {
-        display(topLine, "*-Return #-Yes");
-        displayed = true;
       }
     }
   } else {
     updateGlobalTimer();
-    keypadInput = -1; // Ensures it is set to -1
-    if (!displayed) {
-      display(topLine, "*-Return #-Yes");
-      displayed = true;
-    }
   }
-
 }
 
 
