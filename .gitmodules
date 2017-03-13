@@ -1,0 +1,3 @@
+[submodule "r3-board/agg-kicad"]
+	path = r3-board/agg-kicad
+	url = https://github.com/adamgreig/agg-kicad.git
